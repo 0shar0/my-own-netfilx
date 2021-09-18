@@ -10,5 +10,5 @@ export const PrivateRouts = ({ path, exact, component }) => {
       </Route>
     );
   }
-  return <Redirect to="/error_404" />
+  return <Redirect to="/error_404" />;
 };

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Fade, Input, Modal, useTheme } from '@material-ui/core';
-import { useStyles } from './LoginModal.style';
-import { CustomButton} from '../CustomButton/CustomButton';
+import {Box, Fade, Input, Modal, useTheme} from '@material-ui/core';
+import {useStyles} from './LoginModal.style';
+import {CustomButton} from '../CustomButton/CustomButton';
 
 export const LoginModal = ({ open, setOpen }) => {
   const handleClose = () => setOpen(false);
@@ -33,8 +33,14 @@ export const LoginModal = ({ open, setOpen }) => {
         <Box sx={style}>
           <Input />
           <Input />
-          <CustomButton text={'Submit'} handleClick={()=>console.log('submit')} />
-          <CustomButton text={'Register'} handleClick={()=>console.log('reg')} />
+          <CustomButton
+            text={'Submit'}
+            handleClick={() => console.log('submit')}
+          />
+          <CustomButton
+            text={'Register'}
+            handleClick={() => console.log('reg')}
+          />
         </Box>
       </Fade>
     </Modal>
