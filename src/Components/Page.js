@@ -3,7 +3,7 @@ import { Container } from '@material-ui/core';
 
 export const Page = (props) => {
   return (
-    <Container disableGutters>
+    <Container>
       <props.component />
     </Container>
   );

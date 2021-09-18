@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavbar } from '../../Constant/Navbar';
+import { useNavbar } from '../../Hooks/useNavbar';
 import { NavLink } from 'react-router-dom';
 import { useStyles } from './Navbar.styles';
 
