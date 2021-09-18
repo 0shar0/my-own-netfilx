@@ -1,5 +1,5 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getSchedule } from '../../Api/api';
+import {createAsyncThunk} from '@reduxjs/toolkit';
+import {getSchedule} from '../../Api/api';
 
 export const fetchSchedule = createAsyncThunk('fetchSchedule', async () => {
   try {
