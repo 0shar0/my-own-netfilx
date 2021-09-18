@@ -5,6 +5,6 @@ export const palette = {
     black: '#000',
   },
   secondary:{
-    main: '#666666'
+    main: '#8d8d8d'
   }
 };
