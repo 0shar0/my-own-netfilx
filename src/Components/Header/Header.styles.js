@@ -10,9 +10,12 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     padding: theme.spacing(0, 8),
   }),
+  nameContainer: {
+    margin: theme.spacing(3, 0),
+  },
   name: {
     color: theme.palette.primary.main,
-    margin: theme.spacing(3, 0),
+    textDecoration: 'none',
   },
   rootButton: {
     backgroundColor: theme.palette.primary.main,
