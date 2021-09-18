@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
-import { langTokens } from '../Locales/localization';
+import {useTranslation} from 'react-i18next';
+import {langTokens} from '../Locales/localization';
 
 export const useNavbar = () => {
   const { t } = useTranslation();

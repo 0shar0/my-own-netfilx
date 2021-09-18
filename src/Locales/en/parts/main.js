@@ -1,4 +1,4 @@
 export const main = {
-    name:'My own Netflix',
-    login:'Login / Signup',
-}
+  name: 'My own Netflix',
+  login: 'Login / Signup',
+};

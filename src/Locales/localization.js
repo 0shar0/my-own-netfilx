@@ -1,6 +1,6 @@
 import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';
-import { english } from './en/english';
+import {initReactI18next} from 'react-i18next';
+import {english} from './en/english';
 
 const langResources = {
   en: { translation: english },
@@ -48,7 +48,7 @@ function langEqualityCheck(lang1, lang2) {
         if (typeof lang1[key] === 'object') {
           isSame = isSame && langEqualityCheck(lang1[key], lang2[key]);
         } else if (!key.includes('_') && lang1[key] !== lang2[key]) {
-            isSame = false;
+          isSame = false;
         }
       });
     } else if (typeof lang1 === 'string' && typeof lang2 === 'string') {

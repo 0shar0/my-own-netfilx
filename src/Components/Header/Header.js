@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Box, Typography } from '@material-ui/core';
-import { useStyles } from './Header.styles';
-import { useTranslation } from 'react-i18next';
-import { langTokens } from '../../Locales/localization';
-import { MAIN_IMAGE } from '../../Constant/Main';
-import { Navbar } from '../Navbar/Navbar';
-import { Link } from 'react-router-dom';
-import { LoginModal } from '../LoginModal/LoginModal';
-import { CustomButton} from '../CustomButton/CustomButton';
+import React, {useState} from 'react';
+import {Box, Typography} from '@material-ui/core';
+import {useStyles} from './Header.styles';
+import {useTranslation} from 'react-i18next';
+import {langTokens} from '../../Locales/localization';
+import {MAIN_IMAGE} from '../../Constant/Main';
+import {Navbar} from '../Navbar/Navbar';
+import {Link} from 'react-router-dom';
+import {LoginModal} from '../LoginModal/LoginModal';
+import {CustomButton} from '../CustomButton/CustomButton';
 
 export const Header = () => {
   const classes = useStyles({
@@ -28,7 +28,10 @@ export const Header = () => {
             </Link>
           </Typography>
         </Box>
-        <CustomButton handleClick={handleOpen} text={t(langTokens.main.login)} />
+        <CustomButton
+          handleClick={handleOpen}
+          text={t(langTokens.main.login)}
+        />
       </Box>
       <Navbar />
       <LoginModal open={open} setOpen={setOpen} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useStyles } from './CustomButton.styles';
+import {useStyles} from './CustomButton.styles';
 import {Button} from '@material-ui/core';
 
 export const CustomButton = ({ handleClick, text }) => {

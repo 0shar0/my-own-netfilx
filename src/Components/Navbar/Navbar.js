@@ -1,7 +1,7 @@
 import React from 'react';
-import { useNavbar } from '../../Hooks/useNavbar';
-import { NavLink } from 'react-router-dom';
-import { useStyles } from './Navbar.styles';
+import {useNavbar} from '../../Hooks/useNavbar';
+import {NavLink} from 'react-router-dom';
+import {useStyles} from './Navbar.styles';
 
 export const Navbar = () => {
   const classes = useStyles();

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { PrivateRouts } from './PrivateRouts';
-import { Page } from '../Components/Page';
-import { Page404 } from '../Components/Page404/Page404';
+import {Route, Switch} from 'react-router-dom';
+import {PrivateRouts} from './PrivateRouts';
+import {Page} from '../Components/Page';
+import {Page404} from '../Components/Page404/Page404';
 
 export const AppRouts = ({ routs }) => {
   return (

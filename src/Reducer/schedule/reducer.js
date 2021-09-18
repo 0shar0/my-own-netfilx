@@ -1,6 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { getAsyncActionsReducer } from '../../Helpers/asyncAction';
-import { fetchSchedule } from './asyncAction';
+import {createSlice} from '@reduxjs/toolkit';
+import {getAsyncActionsReducer} from '../../Helpers/asyncAction';
+import {fetchSchedule} from './asyncAction';
 
 const initialState = {
   data: [],

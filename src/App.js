@@ -7,11 +7,11 @@ import {routs} from './Router/Routs';
 
 export const App = () => {
   return (
-    <div className='app'>
+    <div className="app">
       <BrowserRouter>
         <RootProvider>
           <Header />
-          <AppRouts routs={routs}/>
+          <AppRouts routs={routs} />
         </RootProvider>
       </BrowserRouter>
     </div>

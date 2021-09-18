@@ -1,10 +1,10 @@
-import { MainPage } from '../Components/MainPage/MainPage';
-import { Shows } from '../Components/Shows/Shows';
-import { People } from '../Components/People/People';
-import { Networks } from '../Components/Networks/Networks';
-import { WebChannels } from '../Components/WebChannels/WebChannels';
-import { Articles } from '../Components/Articles/Articles';
-import { Page404 } from '../Components/Page404/Page404';
+import {MainPage} from '../Components/MainPage/MainPage';
+import {Shows} from '../Components/Shows/Shows';
+import {People} from '../Components/People/People';
+import {Networks} from '../Components/Networks/Networks';
+import {WebChannels} from '../Components/WebChannels/WebChannels';
+import {Articles} from '../Components/Articles/Articles';
+import {Page404} from '../Components/Page404/Page404';
 
 export const routs = [
   {
