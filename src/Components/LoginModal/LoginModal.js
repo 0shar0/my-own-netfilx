@@ -2,11 +2,14 @@ import React from 'react';
 import {Box, Fade, Input, Modal, useTheme} from '@material-ui/core';
 import {useStyles} from './LoginModal.style';
 import {CustomButton} from '../CustomButton/CustomButton';
+import {langTokens} from '../../Locales/localization';
+import {useTranslation} from 'react-i18next';
 
 export const LoginModal = ({ open, setOpen }) => {
   const handleClose = () => setOpen(false);
   const theme = useTheme();
   const classes = useStyles();
+  const { t } = useTranslation();
 
   const style = {
     position: 'absolute',
@@ -31,16 +34,25 @@ export const LoginModal = ({ open, setOpen }) => {
     >
       <Fade in={open}>
         <Box sx={style}>
-          <Input />
-          <Input />
-          <CustomButton
-            text={'Submit'}
-            handleClick={() => console.log('submit')}
+          <Input
+            placeholder={t(langTokens.main.email)}
+            className={classes.input}
           />
-          <CustomButton
-            text={'Register'}
-            handleClick={() => console.log('reg')}
+          <Input
+            type={'password'}
+            placeholder={t(langTokens.main.password)}
+            className={classes.input}
           />
+          <div className={classes.buttonContainer}>
+            <CustomButton
+              text={t(langTokens.main.submit)}
+              handleClick={() => console.log('submit')}
+            />
+            <CustomButton
+              text={t(langTokens.main.reg)}
+              handleClick={() => console.log('reg')}
+            />
+          </div>
         </Box>
       </Fade>
     </Modal>
