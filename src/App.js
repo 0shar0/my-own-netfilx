@@ -19,7 +19,7 @@ export const App = () => {
               </div>
             }
           >
-            <AppRouts routs={routerConfig} />
+            <AppRouts routerConfig={routerConfig} />
           </Suspense>
         </RootProvider>
       </BrowserRouter>
