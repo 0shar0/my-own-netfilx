@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { langTokens } from '../../Locales/localization';
 import ReactPaginate from 'react-paginate';
 import { ListItems } from '../LIstItems/ListItems';
+import { clearShowsData } from '../../Reducer/shows/reducer';
 
 export const Shows = () => {
   const { t } = useTranslation();
@@ -15,7 +16,10 @@ export const Shows = () => {
   const classes = useStyles();
   const shows = useSelector(selectShows);
 
-  const [boundFetchShows] = useAction([fetchShows]);
+  const [boundFetchShows, boundClearShows] = useAction([
+    fetchShows,
+    clearShowsData,
+  ]);
   const [page, setPage] = useState(0);
 
   const loadSelectedPage = (selectPage) => {
@@ -25,6 +29,9 @@ export const Shows = () => {
   useEffect(() => {
     boundFetchShows({ page });
     window.scrollTo(0, 0);
+    return () => {
+      boundClearShows();
+    };
   }, [page]);
 
   return (
