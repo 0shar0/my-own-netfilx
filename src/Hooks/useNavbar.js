@@ -1,5 +1,5 @@
-import {useTranslation} from 'react-i18next';
-import {langTokens} from '../Locales/localization';
+import { useTranslation } from 'react-i18next';
+import { langTokens } from '../Locales/localization';
 
 export const useNavbar = () => {
   const { t } = useTranslation();
@@ -29,6 +29,11 @@ export const useNavbar = () => {
       id: 'articles',
       label: t(langTokens.nav.article),
       url: '/articles',
+    },
+    {
+      id: 'about',
+      label: t(langTokens.nav.about),
+      url: '/about',
     },
   ];
 };
