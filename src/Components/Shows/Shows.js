@@ -3,7 +3,7 @@ import { useStyles } from './Shows.style';
 import { useAction } from '../../Hooks/useAction';
 import { fetchShows, selectShows } from '../../Reducer/shows';
 import { useSelector } from 'react-redux';
-import { Typography } from '@material-ui/core';
+import { CircularProgress, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { langTokens } from '../../Locales/localization';
 import ReactPaginate from 'react-paginate';
@@ -14,7 +14,7 @@ const Shows = () => {
   const { t } = useTranslation();
 
   const classes = useStyles();
-  const shows = useSelector(selectShows);
+  const { data, loading } = useSelector(selectShows);
 
   const [boundFetchShows, boundClearShows] = useAction([
     fetchShows,
@@ -37,9 +37,9 @@ const Shows = () => {
   return (
     <div className={classes.root}>
       <Typography variant={'h2'}>{t(langTokens.nav.shows)}</Typography>
-      {Boolean(shows.length) && (
+      {loading === 'succeeded' ? (
         <>
-          <ListItems items={shows} />
+          <ListItems items={data} />
           <ReactPaginate
             onPageChange={loadSelectedPage}
             containerClassName={classes.pagination}
@@ -53,6 +53,8 @@ const Shows = () => {
             nextLabel={'>'}
           />
         </>
+      ) : (
+        <CircularProgress style={{ marginTop: '30px' }} />
       )}
     </div>
   );
