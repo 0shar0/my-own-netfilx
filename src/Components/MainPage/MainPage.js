@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react';
-import {useStyles} from './MainPage.styles';
-import {useAction} from '../../Hooks/useAction';
-import {fetchSchedule, selectSchedule} from '../../Reducer/schedule';
-import {useSelector} from 'react-redux';
-import {Schedule} from './Schedule/Schedule';
+import React, { useEffect } from 'react';
+import { useStyles } from './MainPage.styles';
+import { useAction } from '../../Hooks/useAction';
+import { fetchSchedule, selectSchedule } from '../../Reducer/schedule';
+import { useSelector } from 'react-redux';
+import { Schedule } from './Schedule/Schedule';
 
-export const MainPage = () => {
+const MainPage = () => {
   const classes = useStyles();
 
   const schedule = useSelector(selectSchedule);
@@ -15,7 +15,10 @@ export const MainPage = () => {
     boundFetchSchedule();
   }, []);
 
-  return <div className={classes.mainPage}>
-  <Schedule schedule={schedule}/>
-  </div>;
+  return (
+    <div className={classes.mainPage}>
+      <Schedule schedule={schedule} />
+    </div>
+  );
 };
+export default MainPage;

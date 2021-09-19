@@ -10,7 +10,7 @@ import ReactPaginate from 'react-paginate';
 import { ListItems } from '../LIstItems/ListItems';
 import { clearShowsData } from '../../Reducer/shows/reducer';
 
-export const Shows = () => {
+const Shows = () => {
   const { t } = useTranslation();
 
   const classes = useStyles();
@@ -57,3 +57,4 @@ export const Shows = () => {
     </div>
   );
 };
+export default Shows;

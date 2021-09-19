@@ -4,7 +4,7 @@ import { Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { langTokens } from '../../Locales/localization';
 
-export const Page404 = () => {
+const Page404 = () => {
   const classes = useStyles();
   const { t } = useTranslation();
 
@@ -15,3 +15,4 @@ export const Page404 = () => {
     </div>
   );
 };
+export default Page404;

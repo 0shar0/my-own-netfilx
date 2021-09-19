@@ -1,5 +1,6 @@
 import React from 'react';
 
-export const WebChannels = () => {
+const WebChannels = () => {
   return <div>WebChannels</div>;
 };
+export default WebChannels
