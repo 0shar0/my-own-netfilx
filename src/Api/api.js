@@ -8,6 +8,6 @@ export const getSchedule = async () => {
   return instance.get('/schedule');
 };
 
-export const getShows = async () => {
-  return instance.get('/shows');
+export const getShows = async (page) => {
+  return instance.get('/shows', { params: { page } });
 };
