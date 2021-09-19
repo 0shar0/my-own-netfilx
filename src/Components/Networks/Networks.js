@@ -1,5 +1,6 @@
 import React from 'react';
 
-export const Networks = () => {
+const Networks = () => {
   return <div>Networks</div>;
 };
+export default Networks;

@@ -1,10 +1,12 @@
-import {MainPage} from '../Components/MainPage/MainPage';
-import {Shows} from '../Components/Shows/Shows';
-import {People} from '../Components/People/People';
-import {Networks} from '../Components/Networks/Networks';
-import {WebChannels} from '../Components/WebChannels/WebChannels';
-import {Articles} from '../Components/Articles/Articles';
-import {Page404} from '../Components/Page404/Page404';
+import { lazy } from 'react';
+
+const MainPage = lazy(() => import('../Components/MainPage/MainPage'));
+const Shows = lazy(() => import('../Components/Shows/Shows'));
+const People = lazy(() => import('../Components/People/People'));
+const Networks = lazy(() => import('../Components/Networks/Networks'));
+const WebChannels = lazy(() => import('../Components/WebChannels/WebChannels'));
+const Articles = lazy(() => import('../Components/Articles/Articles'));
+const Page404 = lazy(() => import('../Components/Page404/Page404'));
 
 export const routs = [
   {

@@ -26,7 +26,6 @@ export const ItemCard = ({ item }) => {
               precision={0.1}
               size={'small'}
             />
-            {/*<Typography variant={'h6'}>{item?.rating?.average}</Typography>*/}
           </div>
         </Container>
       </Link>
