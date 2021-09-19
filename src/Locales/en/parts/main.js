@@ -5,4 +5,7 @@ export const main = {
   reg: 'Register',
   email: 'E-mail',
   password: 'Password',
+  schedule: 'SCHEDULE',
+  page404: 'Error 404',
+  notFound: 'Page not found',
 };

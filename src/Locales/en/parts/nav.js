@@ -4,4 +4,5 @@ export const nav = {
   networks: 'Networks',
   web: 'Web Channels',
   article: 'Articles',
+  about: 'About',
 };

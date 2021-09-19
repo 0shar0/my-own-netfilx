@@ -3,6 +3,7 @@ import {useStyles} from './MainPage.styles';
 import {useAction} from '../../Hooks/useAction';
 import {fetchSchedule, selectSchedule} from '../../Reducer/schedule';
 import {useSelector} from 'react-redux';
+import {Schedule} from './Schedule/Schedule';
 
 export const MainPage = () => {
   const classes = useStyles();
@@ -14,7 +15,7 @@ export const MainPage = () => {
     boundFetchSchedule();
   }, []);
 
-  console.log(schedule);
-
-  return <div className={classes.mainPage}>Main Page</div>;
+  return <div className={classes.mainPage}>
+  <Schedule schedule={schedule}/>
+  </div>;
 };
