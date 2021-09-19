@@ -5,4 +5,5 @@ export const main = {
   reg: 'Register',
   email: 'E-mail',
   password: 'Password',
+  schedule:'SCHEDULE'
 };

@@ -2,7 +2,7 @@ import {makeStyles} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   header: (props) => ({
-    width: '100vw',
+    width: '100%',
     height: 100,
     backgroundImage: `url(${props.img})`,
     backgroundSize: 'cover',

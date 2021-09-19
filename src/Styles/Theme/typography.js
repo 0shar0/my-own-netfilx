@@ -4,4 +4,9 @@ export const typography = {
     fontWeight: 700,
     fontSize: 48,
   },
+  h2: {
+    fontWeight: 700,
+    fontSize: 32,
+    lineHeight: '38px',
+  },
 };

@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { getSchedule } from '../../Api/api';
+import { getShows } from '../../Api/api';
 
-export const fetchSchedule = createAsyncThunk(
-  'fetchSchedule',
+export const fetchShows = createAsyncThunk(
+  'fetchShows',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await getSchedule();
+      const response = await getShows();
       return response.data;
     } catch (err) {
       rejectWithValue(err);

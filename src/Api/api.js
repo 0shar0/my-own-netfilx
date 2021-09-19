@@ -7,3 +7,7 @@ const instance = axios.create({
 export const getSchedule = async () => {
   return instance.get('/schedule');
 };
+
+export const getShows = async () => {
+  return instance.get('/shows');
+};
