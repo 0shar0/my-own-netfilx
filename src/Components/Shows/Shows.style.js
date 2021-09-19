@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   root: {
+    marginTop: theme.spacing(5),
     color: theme.palette.primary.white,
     display: 'flex',
     flexDirection: 'column',
@@ -15,6 +16,7 @@ export const useStyles = makeStyles((theme) => ({
     listStyle: 'none',
     cursor: 'pointer',
     display: 'flex',
+    margin: theme.spacing(5, 0),
     '& a': {
       padding: theme.spacing(0, 2),
     },
