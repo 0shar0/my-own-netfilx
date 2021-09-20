@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-import { EpisodesTable } from './EpisodesTable';
+import { EpisodesTable } from './ShowEpisodesTable/EpisodesTable';
 
 export const ShowEpisodes = ({ episodes, name }) => {
   return (

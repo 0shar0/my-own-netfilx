@@ -9,9 +9,9 @@ import {
   TableRow,
   Typography,
 } from '@material-ui/core';
-import { langTokens } from '../../../../Locales/localization';
+import { langTokens } from '../../../../../Locales/localization';
 import { useTranslation } from 'react-i18next';
-import { reverse } from '../../../../Constant/Functions';
+import { reverse } from '../../../../../Constant/Functions';
 
 export const EpisodesTable = ({ episodes }) => {
   const { t } = useTranslation();

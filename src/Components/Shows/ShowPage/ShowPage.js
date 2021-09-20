@@ -18,7 +18,7 @@ import { useSelector } from 'react-redux';
 import { selectEpisodes } from '../../../Reducer/episodes/selectors';
 import { CustomButton } from '../../CustomButton/CustomButton';
 import { ShowEpisodes } from './ShowEpisodes/ShowEpisodes';
-import { EpisodesTable } from './ShowEpisodes/EpisodesTable';
+import { EpisodesTable } from './ShowEpisodes/ShowEpisodesTable/EpisodesTable';
 
 const ShowPage = () => {
   const { t } = useTranslation();
