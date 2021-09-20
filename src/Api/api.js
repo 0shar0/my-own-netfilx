@@ -13,7 +13,7 @@ export const getShows = async (page) => {
 };
 
 export const getShowsById = async (id) => {
-  return instance.get(`/shows/${id}`);
+  return instance.get(`/shows/${id}?embed=cast`);
 };
 
 export const getShowsEpisodes = async (id) => {

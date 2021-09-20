@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getShowsById, getShowsEpisodes } from '../../../Api/api';
+import { getShowsById } from '../../../Api/api';
 import {
   Card,
   CardContent,
@@ -17,17 +17,22 @@ import ReactHtmlParser from 'react-html-parser';
 import { useTranslation } from 'react-i18next';
 import { langTokens } from '../../../Locales/localization';
 import { Rating } from '@material-ui/lab';
+import { fetchEpisodes } from '../../../Reducer/episodes';
+import { useAction } from '../../../Hooks/useAction';
+import { useSelector } from 'react-redux';
+import { selectEpisodes } from '../../../Reducer/episodes/selectors';
 
 const ShowsPage = () => {
   const { t } = useTranslation();
   const { id } = useParams();
   const [show, setShow] = useState();
-  const [episodes, setEpisodes] = useState();
+  const [boundGetEpisodes] = useAction([fetchEpisodes]);
+  const episodes = useSelector(selectEpisodes);
   const genre = show?.genres.join(' | ');
 
   useEffect(() => {
     getShowsById(id).then((response) => setShow(response.data));
-    getShowsEpisodes(id).then((response) => setEpisodes(response.data));
+    boundGetEpisodes(id);
   }, []);
 
   return (
@@ -88,20 +93,23 @@ const ShowsPage = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {episodes.slice(-5).reverse().map((episode) => (
-                  <>
-                    <TableRow>
-                      <TableCell>
-                        <Typography variant={'h6'}>{episode.name}</Typography>
-                      </TableCell>
-                      <TableCell>
-                        <Typography variant={'h6'}>
-                          {episode.airdate.split('-').reverse().join('.')}
-                        </Typography>
-                      </TableCell>
-                    </TableRow>
-                  </>
-                ))}
+                {episodes
+                  .slice(-3)
+                  .reverse()
+                  .map((episode) => (
+                    <>
+                      <TableRow>
+                        <TableCell>
+                          <Typography variant={'h6'}>{episode.name}</Typography>
+                        </TableCell>
+                        <TableCell>
+                          <Typography variant={'h6'}>
+                            {episode.airdate.split('-').reverse().join('.')}
+                          </Typography>
+                        </TableCell>
+                      </TableRow>
+                    </>
+                  ))}
               </TableBody>
             </Table>
           </TableContainer>
