@@ -50,7 +50,7 @@ export const Schedule = ({ schedule }) => {
         classes={{
           cell: classes.cell,
         }}
-        onRowClick={(e) => history.push(`shows/${e.id}`)}
+        onRowClick={(e) => history.push(`/`)}
         autoHeight
         rows={rows}
         columns={columns}
