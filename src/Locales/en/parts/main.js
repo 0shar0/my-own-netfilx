@@ -14,6 +14,9 @@ export const main = {
   status: 'Status: {{show.status}}',
   type: 'Show Type: {{show.type}}',
   genre: 'Genres: {{genre}}',
-  episodeName: 'Last Episodes',
+  episodeName: 'Episodes Name',
+  lastEpisodes: 'Last Episodes',
   airDate: 'Air date',
+  showAllEpisodes: 'Show all episodes',
+  season: 'Season: ',
 };

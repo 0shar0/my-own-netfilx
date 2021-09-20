@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { getShowsById } from '../../../Api/api';
 import {
-  Card,
-  CardContent,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
-} from '@material-ui/core';
+  Link,
+  Route,
+  Switch,
+  useParams,
+  useRouteMatch,
+} from 'react-router-dom';
+import { getShowsById } from '../../../Api/api';
+import { Card, CardContent, Typography } from '@material-ui/core';
 import ReactHtmlParser from 'react-html-parser';
 import { useTranslation } from 'react-i18next';
 import { langTokens } from '../../../Locales/localization';
@@ -21,10 +16,14 @@ import { fetchEpisodes } from '../../../Reducer/episodes';
 import { useAction } from '../../../Hooks/useAction';
 import { useSelector } from 'react-redux';
 import { selectEpisodes } from '../../../Reducer/episodes/selectors';
+import { CustomButton } from '../../CustomButton/CustomButton';
+import { ShowEpisodes } from './ShowEpisodes/ShowEpisodes';
+import { EpisodesTable } from './ShowEpisodes/EpisodesTable';
 
 const ShowPage = () => {
   const { t } = useTranslation();
   const { id } = useParams();
+  const match = useRouteMatch();
   const [show, setShow] = useState();
   const [boundGetEpisodes] = useAction([fetchEpisodes]);
   const episodes = useSelector(selectEpisodes);
@@ -35,87 +34,73 @@ const ShowPage = () => {
     boundGetEpisodes(id);
   }, []);
 
+  console.log(episodes[0]);
+
   return (
-    <div style={{ color: 'white' }}>
-      <Typography variant={'h2'}>{show?.name}</Typography>
-      <div>
-        <img src={show?.image?.medium} alt="logo" />
-        <Typography variant={'h6'} component={'p'}>
-          {ReactHtmlParser(show?.summary)}
-        </Typography>
-      </div>
-      <div>
-        <Card>
-          <CardContent>
-            <Typography variant={'h3'} component={'p'}>
-              {t(langTokens.main.showInfo)}
+    <Switch>
+      <Route exact path={match.path}>
+        <div style={{ color: 'white' }}>
+          <Typography variant={'h2'}>{show?.name}</Typography>
+          <div>
+            <img src={show?.image?.medium} alt="logo" />
+            <Typography variant={'h6'}>
+              {ReactHtmlParser(show?.summary)}
             </Typography>
-            <Typography variant={'h5'}>
-              {t(langTokens.main.webChannel, { show })}
-            </Typography>
-            <Typography variant={'h5'}>
-              {t(langTokens.main.average, { show })}
-            </Typography>
-            <Typography variant={'h5'}>
-              {t(langTokens.main.status, { show })}
-            </Typography>
-            <Typography variant={'h5'}>
-              {t(langTokens.main.type, { show })}
-            </Typography>
-            <Typography variant={'h5'}>
-              {t(langTokens.main.genre, { genre })}
-            </Typography>
-            {show?.rating.average && (
-              <Rating
-                defaultValue={show?.rating.average}
-                max={10}
-                readOnly
-                precision={0.1}
-              />
-            )}
-          </CardContent>
-        </Card>
-        {!!episodes && (
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 700 }} aria-label="customized table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>
-                    <Typography variant={'h4'}>
-                      {t(langTokens.main.episodeName)}
-                    </Typography>
-                  </TableCell>
-                  <TableCell>
-                    <Typography variant={'h4'}>
-                      {t(langTokens.main.airDate)}
-                    </Typography>
-                  </TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {episodes
-                  .slice(-3)
-                  .reverse()
-                  .map((episode) => (
-                    <>
-                      <TableRow>
-                        <TableCell>
-                          <Typography variant={'h6'}>{episode.name}</Typography>
-                        </TableCell>
-                        <TableCell>
-                          <Typography variant={'h6'}>
-                            {episode.airdate.split('-').reverse().join('.')}
-                          </Typography>
-                        </TableCell>
-                      </TableRow>
-                    </>
-                  ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        )}
-      </div>
-    </div>
+          </div>
+          <div>
+            <Card>
+              <CardContent>
+                <Typography variant={'h3'}>
+                  {t(langTokens.main.showInfo)}
+                </Typography>
+                <Typography variant={'h5'}>
+                  {t(langTokens.main.webChannel, { show })}
+                </Typography>
+                <Typography variant={'h5'}>
+                  {t(langTokens.main.average, { show })}
+                </Typography>
+                <Typography variant={'h5'}>
+                  {t(langTokens.main.status, { show })}
+                </Typography>
+                <Typography variant={'h5'}>
+                  {t(langTokens.main.type, { show })}
+                </Typography>
+                <Typography variant={'h5'}>
+                  {t(langTokens.main.genre, { genre })}
+                </Typography>
+                {show?.rating.average && (
+                  <Rating
+                    defaultValue={show?.rating.average}
+                    max={10}
+                    readOnly
+                    precision={0.1}
+                  />
+                )}
+              </CardContent>
+            </Card>
+            <div>
+              {!!episodes && (
+                <>
+                  <Typography variant={'h3'}>
+                    {t(langTokens.main.lastEpisodes)}
+                  </Typography>
+                  <EpisodesTable episodes={episodes.slice(-3)} />
+                </>
+              )}
+              <Link
+                style={{ textDecoration: 'none' }}
+                to={`${match.url}/episodes`}
+              >
+                <CustomButton text={t(langTokens.main.showAllEpisodes)} />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </Route>
+      <Route path={`${match.url}/episodes`}>
+        {!!episodes && <ShowEpisodes episodes={episodes} name={show?.name} />}
+      </Route>
+    </Switch>
   );
 };
 
