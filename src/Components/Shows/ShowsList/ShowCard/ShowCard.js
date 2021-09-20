@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Typography } from '@material-ui/core';
-import { useStyles } from './ItemCard.style';
+import { useStyles } from './ShowCard.style';
 import { Link } from 'react-router-dom';
-import { NO_IMAGE } from '../../../Constant/Main';
+import { NO_IMAGE } from '../../../../Constant/Main';
 import { Rating } from '@material-ui/lab';
 
-export const ItemCard = ({ item }) => {
+export const ShowCard = ({ item }) => {
   const classes = useStyles();
   return (
     <div className={classes.root}>

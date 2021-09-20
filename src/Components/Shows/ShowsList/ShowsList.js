@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ItemCard } from './ItemCard/ItemCard';
-import { useStyles } from './ListItems.style';
+import { ShowCard } from './ShowCard/ShowCard';
+import { useStyles } from './ShowsList.style';
 
-export const ListItems = ({ items }) => {
+export const ShowsList = ({ items }) => {
   const classes = useStyles();
 
   const lastElement = useRef(null);
@@ -27,11 +27,11 @@ export const ListItems = ({ items }) => {
   return (
     <div className={classes.root}>
       {items.slice(0, count).map((item) => (
-        <ItemCard key={item.id} item={item} />
+        <ShowCard key={item.id} item={item} />
       ))}
       <div ref={lastElement} className={classes.root}>
         {items.slice(count, count + 20).map((item) => (
-          <ItemCard key={item.id} item={item} />
+          <ShowCard key={item.id} item={item} />
         ))}
       </div>
     </div>
