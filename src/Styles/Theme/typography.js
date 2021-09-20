@@ -19,4 +19,9 @@ export const typography = {
     fontSize: 22,
     lineHeight: '26px',
   },
+  h5: {
+    fontWeight: 600,
+    fontSize: 16,
+    lineHeight: '18px',
+  },
 };

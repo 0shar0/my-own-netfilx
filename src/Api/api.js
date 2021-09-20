@@ -15,3 +15,7 @@ export const getShows = async (page) => {
 export const getShowsById = async (id) => {
   return instance.get(`/shows/${id}`);
 };
+
+export const getShowsEpisodes = async (id) => {
+  return instance.get(`/shows/${id}/episodes`);
+};
