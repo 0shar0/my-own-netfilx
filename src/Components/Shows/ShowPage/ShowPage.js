@@ -22,7 +22,7 @@ import { useAction } from '../../../Hooks/useAction';
 import { useSelector } from 'react-redux';
 import { selectEpisodes } from '../../../Reducer/episodes/selectors';
 
-const ShowsPage = () => {
+const ShowPage = () => {
   const { t } = useTranslation();
   const { id } = useParams();
   const [show, setShow] = useState();
@@ -119,4 +119,4 @@ const ShowsPage = () => {
   );
 };
 
-export default ShowsPage;
+export default ShowPage;
