@@ -3,6 +3,7 @@ import { routs } from '../Constant/Routing';
 
 const MainPage = lazy(() => import('../Components/MainPage/MainPage'));
 const Shows = lazy(() => import('../Components/Shows/Shows'));
+const ShowsPage = lazy(() => import('../Components/Shows/ShowsPage/ShowsPage'));
 const People = lazy(() => import('../Components/People/People'));
 const Networks = lazy(() => import('../Components/Networks/Networks'));
 const WebChannels = lazy(() => import('../Components/WebChannels/WebChannels'));
@@ -50,7 +51,7 @@ export const routerConfig = [
     path: routs.showId.path,
     key: routs.showId.key,
     exact: true,
-    component: Articles,
+    component: ShowsPage,
   },
   {
     path: routs.error404.path,
