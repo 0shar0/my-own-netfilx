@@ -88,7 +88,7 @@ const ShowsPage = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {episodes.slice(-5).map((episode) => (
+                {episodes.slice(-5).reverse().map((episode) => (
                   <>
                     <TableRow>
                       <TableCell>
