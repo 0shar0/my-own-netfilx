@@ -1,39 +1,40 @@
 import { useTranslation } from 'react-i18next';
 import { langTokens } from '../Locales/localization';
+import { routs } from '../Constant/Routing';
 
 export const useNavbar = () => {
   const { t } = useTranslation();
 
   return [
     {
-      id: 'shows',
+      id: routs.show.key,
       label: t(langTokens.nav.shows),
-      url: '/shows',
+      url: routs.show.path,
     },
     {
-      id: 'people',
+      id: routs.people.key,
       label: t(langTokens.nav.people),
-      url: '/people',
+      url: routs.people.path,
     },
     {
-      id: 'networks',
+      id: routs.networks.key,
       label: t(langTokens.nav.networks),
-      url: '/networks',
+      url: routs.networks.path,
     },
     {
-      id: 'web',
+      id: routs.webChannels.key,
       label: t(langTokens.nav.web),
-      url: '/webchannels',
+      url: routs.webChannels.path,
     },
     {
-      id: 'articles',
+      id: routs.articles.key,
       label: t(langTokens.nav.article),
-      url: '/articles',
+      url: routs.articles.path,
     },
     {
-      id: 'about',
+      id: routs.about.key,
       label: t(langTokens.nav.about),
-      url: '/about',
+      url: routs.about.path,
     },
   ];
 };

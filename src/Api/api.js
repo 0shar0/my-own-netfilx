@@ -11,3 +11,11 @@ export const getSchedule = async () => {
 export const getShows = async (page) => {
   return instance.get('/shows', { params: { page } });
 };
+
+export const getShowsById = async (id) => {
+  return instance.get(`/shows/${id}`);
+};
+
+export const getShowsEpisodes = async (id) => {
+  return instance.get(`/shows/${id}/episodes`);
+};

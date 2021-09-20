@@ -8,4 +8,12 @@ export const main = {
   schedule: 'SCHEDULE',
   page404: 'Error 404',
   notFound: 'Page not found',
+  showInfo: 'Show Info',
+  webChannel: 'Web channel: {{show.webChannel.name}}',
+  average: 'Average Runtime: {{show.averageRuntime}}',
+  status: 'Status: {{show.status}}',
+  type: 'Show Type: {{show.type}}',
+  genre: 'Genres: {{genre}}',
+  episodeName: 'Episode Name',
+  airDate: 'Air date',
 };

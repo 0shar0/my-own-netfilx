@@ -2,12 +2,13 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { PrivateRouts } from './PrivateRouts';
 import { Page } from '../Components/Page';
+import { routs } from '../Constant/Routing';
 
-export const AppRouts = ({ routs }) => {
+export const AppRouts = ({ routerConfig }) => {
   return (
     <>
       <Switch>
-        {routs.map((rout) => {
+        {routerConfig.map((rout) => {
           if (rout.private) {
             return (
               <PrivateRouts
@@ -24,7 +25,7 @@ export const AppRouts = ({ routs }) => {
             </Route>
           );
         })}
-        <Redirect to={'/error_404'} />
+        <Redirect to={routs.error404.path} />
       </Switch>
     </>
   );

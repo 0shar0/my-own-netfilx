@@ -3,7 +3,7 @@ import { Header } from './Components/Header/Header';
 import { RootProvider } from './Provider/RootProvider';
 import { BrowserRouter } from 'react-router-dom';
 import { AppRouts } from './Router/AppRouts';
-import { routs } from './Router/Routs';
+import { routerConfig } from './Router/Routs';
 import { CircularProgress } from '@material-ui/core';
 
 export const App = () => {
@@ -19,7 +19,7 @@ export const App = () => {
               </div>
             }
           >
-            <AppRouts routs={routs} />
+            <AppRouts routerConfig={routerConfig} />
           </Suspense>
         </RootProvider>
       </BrowserRouter>
