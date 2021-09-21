@@ -9,10 +9,13 @@ import { langTokens } from '../../Locales/localization';
 import ReactPaginate from 'react-paginate';
 import { ShowsList } from './ShowsList/ShowsList';
 import { clearShowsData } from '../../Reducer/shows/reducer';
+import { ItemCard } from '../ItemCard/ItemCard';
+import { ListItems } from '../ListItems/ListItems';
+import { useHistory } from 'react-router-dom';
 
 const Shows = () => {
   const { t } = useTranslation();
-
+  const history = useHistory();
   const classes = useStyles();
   const { data, loading } = useSelector(selectShows);
 
@@ -24,6 +27,10 @@ const Shows = () => {
 
   const loadSelectedPage = (selectPage) => {
     setPage(selectPage.selected);
+  };
+
+  const clickHandler = (id) => {
+    history.push(`/shows/${id}`);
   };
 
   useEffect(() => {
@@ -39,7 +46,7 @@ const Shows = () => {
       <Typography variant={'h2'}>{t(langTokens.nav.shows)}</Typography>
       {loading === 'succeeded' ? (
         <>
-          <ShowsList items={data} />
+          <ListItems items={data} clickHandler={clickHandler} />
           <ReactPaginate
             onPageChange={loadSelectedPage}
             containerClassName={classes.pagination}
