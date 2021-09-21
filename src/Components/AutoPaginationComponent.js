@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { PeopleCard } from './People/PeopleList/PeopleCard/PeopleCard';
 
 export const AutoPaginationComponent = ({ componentList, className }) => {
   const lastElement = useRef(null);

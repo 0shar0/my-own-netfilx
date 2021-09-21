@@ -21,7 +21,6 @@ import { selectEpisodes } from '../../../Reducer/episodes/selectors';
 import { CustomButton } from '../../CustomButton/CustomButton';
 import { ShowEpisodes } from './ShowEpisodes/ShowEpisodes';
 import { EpisodesTable } from './ShowEpisodes/ShowEpisodesTable/EpisodesTable';
-import { PeopleList } from '../../People/PeopleList/PeopleList';
 import { routs } from '../../../Constant/Routing';
 import { useStyles } from './ShowPage.style';
 import { ListItems } from '../../ListItems/ListItems';
