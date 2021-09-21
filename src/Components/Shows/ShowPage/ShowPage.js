@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   Link,
+  Redirect,
   Route,
   Switch,
   useParams,
@@ -19,10 +20,14 @@ import { selectEpisodes } from '../../../Reducer/episodes/selectors';
 import { CustomButton } from '../../CustomButton/CustomButton';
 import { ShowEpisodes } from './ShowEpisodes/ShowEpisodes';
 import { EpisodesTable } from './ShowEpisodes/ShowEpisodesTable/EpisodesTable';
+import { PeopleList } from '../../People/PeopleList/PeopleList';
+import { routs } from '../../../Constant/Routing';
+import { useStyles } from './ShowPage.style';
 
 const ShowPage = () => {
   const { t } = useTranslation();
   const { id } = useParams();
+  const classes = useStyles();
   const match = useRouteMatch();
   const [show, setShow] = useState();
   const [boundGetEpisodes] = useAction([fetchEpisodes]);
@@ -34,28 +39,23 @@ const ShowPage = () => {
     boundGetEpisodes(id);
   }, []);
 
-  console.log(episodes[0]);
-
   return (
     <Switch>
       <Route exact path={match.path}>
-        <div style={{ color: 'white' }}>
+        <div className={classes.root}>
           <Typography variant={'h2'}>{show?.name}</Typography>
-          <div>
+          <div className={classes.imgContainer}>
             <img src={show?.image?.medium} alt="logo" />
-            <Typography variant={'h6'}>
-              {ReactHtmlParser(show?.summary)}
-            </Typography>
-          </div>
-          <div>
             <Card>
               <CardContent>
                 <Typography variant={'h3'}>
                   {t(langTokens.main.showInfo)}
                 </Typography>
-                <Typography variant={'h5'}>
-                  {t(langTokens.main.webChannel, { show })}
-                </Typography>
+                {show?.webChannel && (
+                  <Typography variant={'h5'}>
+                    {t(langTokens.main.webChannel, { show })}
+                  </Typography>
+                )}
                 <Typography variant={'h5'}>
                   {t(langTokens.main.average, { show })}
                 </Typography>
@@ -78,28 +78,39 @@ const ShowPage = () => {
                 )}
               </CardContent>
             </Card>
-            <div>
-              {!!episodes && (
-                <>
-                  <Typography variant={'h3'}>
-                    {t(langTokens.main.lastEpisodes)}
-                  </Typography>
-                  <EpisodesTable episodes={episodes.slice(-3)} />
-                </>
-              )}
-              <Link
-                style={{ textDecoration: 'none' }}
-                to={`${match.url}/episodes`}
-              >
-                <CustomButton text={t(langTokens.main.showAllEpisodes)} />
-              </Link>
-            </div>
           </div>
+          <div className={classes.summary}>
+            <Typography variant={'h3'}>{t(langTokens.main.summary)}</Typography>
+            <Typography variant={'h6'}>
+              {ReactHtmlParser(show?.summary)}
+            </Typography>
+          </div>
+          <div className={classes.lastEpisodes}>
+            {!!episodes && (
+              <div className={classes.episodesTable}>
+                <Typography variant={'h3'}>
+                  {t(langTokens.main.lastEpisodes)}
+                </Typography>
+                <EpisodesTable episodes={episodes.slice(-3)} />
+              </div>
+            )}
+            <Link
+              style={{ textDecoration: 'none' }}
+              to={`${match.url}/episodes`}
+            >
+              <CustomButton text={t(langTokens.main.showAllEpisodes)} />
+            </Link>
+          </div>
+          <Typography variant={'h3'}>{t(langTokens.main.cast)}</Typography>
+          {!!show?._embedded?.cast && (
+            <PeopleList list={show?._embedded?.cast} />
+          )}
         </div>
       </Route>
       <Route path={`${match.url}/episodes`}>
         {!!episodes && <ShowEpisodes episodes={episodes} name={show?.name} />}
       </Route>
+      <Redirect to={routs.error404.path} />
     </Switch>
   );
 };

@@ -10,7 +10,7 @@ export const main = {
   notFound: 'Page not found',
   showInfo: 'Show Info',
   webChannel: 'Web channel: {{show.webChannel.name}}',
-  average: 'Average Runtime: {{show.averageRuntime}}',
+  average: 'Average Runtime: {{show.averageRuntime}} minutes',
   status: 'Status: {{show.status}}',
   type: 'Show Type: {{show.type}}',
   genre: 'Genres: {{genre}}',
@@ -19,4 +19,6 @@ export const main = {
   airDate: 'Air date',
   showAllEpisodes: 'Show all episodes',
   season: 'Season: ',
+  cast: 'Cast',
+  summary: 'Summary',
 };
