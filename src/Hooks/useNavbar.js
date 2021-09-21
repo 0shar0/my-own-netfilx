@@ -27,11 +27,6 @@ export const useNavbar = () => {
       url: routs.webChannels.path,
     },
     {
-      id: routs.articles.key,
-      label: t(langTokens.nav.article),
-      url: routs.articles.path,
-    },
-    {
       id: routs.about.key,
       label: t(langTokens.nav.about),
       url: routs.about.path,

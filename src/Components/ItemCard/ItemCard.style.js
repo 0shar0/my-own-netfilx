@@ -2,6 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   root: {
+    cursor: 'pointer',
     marginTop: theme.spacing(6),
     padding: 0,
     border: `solid 2px ${theme.palette.primary.main}`,
@@ -13,7 +14,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   textWrapper: {
     marginTop: theme.spacing(-1),
-    height: 100,
+    height: 70,
     backgroundColor: theme.palette.primary.main,
     display: 'flex',
     flexDirection: 'column',

@@ -1,10 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ItemCard } from './ItemCard/ItemCard';
-import { useStyles } from './ListItems.style';
 
-export const ListItems = ({ items }) => {
-  const classes = useStyles();
-
+export const AutoPaginationComponent = ({ componentList, className }) => {
   const lastElement = useRef(null);
   const observer = useRef(null);
 
@@ -25,15 +21,11 @@ export const ListItems = ({ items }) => {
   }, []);
 
   return (
-    <div className={classes.root}>
-      {items.slice(0, count).map((item) => (
-        <ItemCard key={item.id} item={item} />
-      ))}
-      <div ref={lastElement} className={classes.root}>
-        {items.slice(count, count + 20).map((item) => (
-          <ItemCard key={item.id} item={item} />
-        ))}
+    <>
+      {componentList.slice(0, count)}
+      <div className={className} ref={lastElement}>
+        {componentList.slice(count, count + 20)}
       </div>
-    </div>
+    </>
   );
 };

@@ -4,8 +4,7 @@ export const routs = {
   people: { path: '/people', key: 'people' },
   networks: { path: '/networks', key: 'networks' },
   webChannels: { path: '/webchannels', key: 'webchannels' },
-  articles: { path: '/articles', key: 'articles' },
-  showId: { path: '/shows/:id', key: '/articles' },
+  showId: { path: '/shows/:id', key: '/show' },
   error404: { path: '/error_404', key: 'page404' },
   about: { path: '/about', key: 'about' },
 };

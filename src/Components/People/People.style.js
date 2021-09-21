@@ -11,17 +11,4 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
     fontSize: 20,
   },
-  pagination: {
-    color: theme.palette.primary.main,
-    listStyle: 'none',
-    cursor: 'pointer',
-    display: 'flex',
-    margin: theme.spacing(5, 0),
-    '& a': {
-      padding: theme.spacing(0, 2),
-    },
-  },
-  active: {
-    color: theme.palette.primary.white,
-  },
 }));

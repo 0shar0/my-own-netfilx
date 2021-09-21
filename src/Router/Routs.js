@@ -3,12 +3,14 @@ import { routs } from '../Constant/Routing';
 
 const MainPage = lazy(() => import('../Components/MainPage/MainPage'));
 const Shows = lazy(() => import('../Components/Shows/Shows'));
-const ShowsPage = lazy(() => import('../Components/Shows/ShowsPage/ShowsPage'));
+const ShowsPage = lazy(() => import('../Components/Shows/ShowPage/ShowPage'));
 const People = lazy(() => import('../Components/People/People'));
 const Networks = lazy(() => import('../Components/Networks/Networks'));
 const WebChannels = lazy(() => import('../Components/WebChannels/WebChannels'));
-const Articles = lazy(() => import('../Components/Articles/Articles'));
 const Page404 = lazy(() => import('../Components/Page404/Page404'));
+const ShowEpisodes = lazy(() =>
+  import('../Components/Shows/ShowPage/ShowEpisodes/ShowEpisodes'),
+);
 
 export const routerConfig = [
   {
@@ -42,15 +44,8 @@ export const routerConfig = [
     component: WebChannels,
   },
   {
-    path: routs.articles.path,
-    key: routs.articles.key,
-    exact: true,
-    component: Articles,
-  },
-  {
     path: routs.showId.path,
     key: routs.showId.key,
-    exact: true,
     component: ShowsPage,
   },
   {

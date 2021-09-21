@@ -1704,25 +1704,6 @@
     react-transition-group "^4.4.2"
     rifm "^0.12.0"
 
-"@mui/material@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@mui/material/-/material-5.0.0.tgz#e5397b7778615933cabee7918230b9e7019ff1b9"
-  integrity sha512-XZNPYQocFyS2Q8Wc7PMudazKa8VDaXADK9PxUfOF6Q0GQNXjLkOn1vRWlyF9EOZQ4QLbgJHyHDlH7ELBN0CA0w==
-  dependencies:
-    "@babel/runtime" "^7.14.8"
-    "@mui/core" "5.0.0-alpha.47"
-    "@mui/system" "^5.0.0"
-    "@mui/types" "^7.0.0"
-    "@mui/utils" "^5.0.0"
-    "@popperjs/core" "^2.4.4"
-    "@types/react-transition-group" "^4.4.2"
-    clsx "^1.1.1"
-    csstype "^3.0.8"
-    hoist-non-react-statics "^3.3.2"
-    prop-types "^15.7.2"
-    react-is "^17.0.2"
-    react-transition-group "^4.4.2"
-
 "@mui/private-theming@^5.0.0":
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@mui/private-theming/-/private-theming-5.0.0.tgz#db89a0efb536bd68f258c0313ba33d2bd3a08ae4"
@@ -1849,11 +1830,6 @@
     native-url "^0.2.6"
     schema-utils "^2.6.5"
     source-map "^0.7.3"
-
-"@popperjs/core@^2.4.4":
-  version "2.10.1"
-  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.10.1.tgz#728ecd95ab207aab8a9a4e421f0422db329232be"
-  integrity sha512-HnUhk1Sy9IuKrxEMdIRCxpIqPw6BFsbYSEUO9p/hNw5sMld/+3OLMWQP80F8/db9qsv3qUjs7ZR5bS/R+iinXw==
 
 "@reduxjs/toolkit@^1.6.1":
   version "1.6.1"
@@ -2240,7 +2216,7 @@
     hoist-non-react-statics "^3.3.0"
     redux "^4.0.0"
 
-"@types/react-transition-group@^4.2.0", "@types/react-transition-group@^4.4.2":
+"@types/react-transition-group@^4.2.0":
   version "4.4.3"
   resolved "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.3.tgz"
   integrity sha512-fUx5muOWSYP8Bw2BUQ9M9RK9+W1XBK/7FLJ8PTQpnpTEkn0ccyMffyEQvan4C3h53gHdx7KE5Qrxi/LnUGQtdg==
@@ -7637,9 +7613,14 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.npmjs.org/lodash.uniq/-/lodash.uniq-4.5.0.tgz"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-"lodash@>=3.5 <5", lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.5, lodash@^4.7.0:
+"lodash@>=3.5 <5", lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.5, lodash@^4.7.0:
   version "4.17.21"
   resolved "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 loglevel@^1.6.8:
