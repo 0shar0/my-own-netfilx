@@ -7,9 +7,7 @@ import { CircularProgress, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
 import { langTokens } from '../../Locales/localization';
 import ReactPaginate from 'react-paginate';
-import { ShowsList } from './ShowsList/ShowsList';
 import { clearShowsData } from '../../Reducer/shows/reducer';
-import { ItemCard } from '../ItemCard/ItemCard';
 import { ListItems } from '../ListItems/ListItems';
 import { useHistory } from 'react-router-dom';
 

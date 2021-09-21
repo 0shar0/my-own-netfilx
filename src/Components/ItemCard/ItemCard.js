@@ -6,6 +6,7 @@ import { useStyles } from './ItemCard.style';
 
 export const ItemCard = ({ item, clickHandler }) => {
   const classes = useStyles();
+  console.log(item)
   return (
     <div onClick={() => clickHandler(item.id)} className={classes.root}>
       <Container disableGutters>
