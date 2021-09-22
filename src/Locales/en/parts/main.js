@@ -8,7 +8,7 @@ export const main = {
   schedule: 'SCHEDULE',
   page404: 'Error 404',
   notFound: 'Page not found',
-  showInfo: 'Show Info',
+  showInfo: 'Info',
   webChannel: 'Web channel: {{show.webChannel.name}}',
   average: 'Average Runtime: {{show.averageRuntime}} minutes',
   status: 'Status: {{show.status}}',

@@ -6,6 +6,7 @@ const Shows = lazy(() => import('../Components/Shows/Shows'));
 const ShowsPage = lazy(() => import('../Components/Shows/ShowPage/ShowPage'));
 const People = lazy(() => import('../Components/People/People'));
 const Page404 = lazy(() => import('../Components/Page404/Page404'));
+const PeoplePage = lazy(() => import('../Components/People/PeoplePage/PeoplePage'));
 
 export const routerConfig = [
   {
@@ -35,5 +36,11 @@ export const routerConfig = [
     path: routs.error404.path,
     key: routs.error404.key,
     component: Page404,
+  },
+  {
+    path: routs.peopleId.path,
+    key: routs.peopleId.key,
+    exact: true,
+    component: PeoplePage,
   },
 ];
