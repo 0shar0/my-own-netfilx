@@ -7,6 +7,11 @@ export const useNavbar = () => {
 
   return [
     {
+      id: routs.main.key,
+      label: t(langTokens.nav.home),
+      url: routs.main.path,
+    },
+    {
       id: routs.show.key,
       label: t(langTokens.nav.shows),
       url: routs.show.path,
@@ -15,16 +20,6 @@ export const useNavbar = () => {
       id: routs.people.key,
       label: t(langTokens.nav.people),
       url: routs.people.path,
-    },
-    {
-      id: routs.networks.key,
-      label: t(langTokens.nav.networks),
-      url: routs.networks.path,
-    },
-    {
-      id: routs.webChannels.key,
-      label: t(langTokens.nav.web),
-      url: routs.webChannels.path,
     },
     {
       id: routs.about.key,

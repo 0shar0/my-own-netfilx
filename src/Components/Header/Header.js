@@ -24,9 +24,7 @@ export const Header = () => {
       <Box className={classes.header}>
         <Box>
           <Typography variant={'h1'} className={classes.nameContainer}>
-            <Link to={routs.main.path} className={classes.name}>
-              {t(langTokens.main.name)}
-            </Link>
+            {t(langTokens.main.name)}
           </Typography>
         </Box>
         <CustomButton
