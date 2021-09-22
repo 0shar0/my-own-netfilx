@@ -12,9 +12,6 @@ export const useStyles = makeStyles((theme) => ({
   }),
   nameContainer: {
     margin: theme.spacing(3, 0),
-  },
-  name: {
     color: theme.palette.primary.main,
-    textDecoration: 'none',
   },
 }));

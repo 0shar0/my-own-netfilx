@@ -1,8 +1,6 @@
 export const nav = {
+  home:'Home',
   shows: 'Shows',
   people: 'People',
-  networks: 'Networks',
-  web: 'Web Channels',
-  article: 'Articles',
   about: 'About',
 };

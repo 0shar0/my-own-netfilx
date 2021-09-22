@@ -8,7 +8,7 @@ export const main = {
   schedule: 'SCHEDULE',
   page404: 'Error 404',
   notFound: 'Page not found',
-  showInfo: 'Show Info',
+  showInfo: 'Info',
   webChannel: 'Web channel: {{show.webChannel.name}}',
   average: 'Average Runtime: {{show.averageRuntime}} minutes',
   status: 'Status: {{show.status}}',
@@ -21,4 +21,8 @@ export const main = {
   season: 'Season: ',
   cast: 'Cast',
   summary: 'Summary',
+  shows: 'Shows',
+  country: 'Country Name: {{name}}',
+  gender: 'Gender: {{gender}}',
+  birthday:'Birthday: {{birthday}}'
 };
