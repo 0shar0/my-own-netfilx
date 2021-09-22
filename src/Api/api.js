@@ -21,6 +21,10 @@ export const getShowsById = async (id) => {
 };
 
 export const getPeopleById = async (id) => {
+  return instance.get(`/people/${id}`);
+};
+
+export const getShowsForPeopleById = async (id) => {
   return instance.get(`/people/${id}/castcredits?embed=show`);
 };
 

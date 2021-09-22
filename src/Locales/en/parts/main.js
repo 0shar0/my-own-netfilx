@@ -21,4 +21,8 @@ export const main = {
   season: 'Season: ',
   cast: 'Cast',
   summary: 'Summary',
+  shows: 'Shows',
+  country: 'Country Name: {{name}}',
+  gender: 'Gender: {{gender}}',
+  birthday:'Birthday: {{birthday}}'
 };
