@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const instance = axios.create({
-  baseURL: 'https://api.tvmaze.com',
+const baseInstance = axios.create({
+  baseURL: 'https://my-own-netflix-back.herokuapp.com/api',
 });
 const apiInstance = axios.create({
   baseURL: ' https://api.tvmaze.com',
@@ -11,8 +11,8 @@ export const getSchedule = async () => {
   return apiInstance.get('/schedule');
 };
 
-export const getShows = async (page) => {
-  return baseInstance.get('/shows');
+export const getShows = async ({ page, limit }) => {
+  return baseInstance.get('/shows', { params: { page, limit } });
 };
 
 export const getPeople = async (page) => {

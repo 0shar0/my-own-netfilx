@@ -24,6 +24,11 @@ export const main = {
   shows: 'Shows',
   country: 'Country Name: {{name}}',
   gender: 'Gender: {{gender}}',
-  birthday:'Birthday: {{birthday}}',
-  logout:'Sign Out',
+  birthday: 'Birthday: {{birthday}}',
+  logout: 'Sign Out',
+  ended: 'Ended',
+  running: 'Running',
+  determined: 'To Be Determined',
+  develop: 'In Development',
+  showStatus: 'Show Status',
 };

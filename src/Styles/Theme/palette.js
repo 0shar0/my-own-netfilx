@@ -6,5 +6,9 @@ export const palette = {
   },
   secondary:{
     main: '#8d8d8d'
+  },
+  opacity:{
+    red: 'rgba(255,0,0,0.21)',
+    black: 'rgba(0,0,0,0.21)'
   }
 };

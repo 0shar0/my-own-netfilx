@@ -41,7 +41,6 @@ const People = () => {
 
   return (
     <div className={classes.root}>
-      <CustomButton handleClick={() => setPage(page + 1)} />
       <Typography variant={'h2'}>{t(langTokens.nav.people)}</Typography>
       {loading === 'succeeded' ? (
         <>
