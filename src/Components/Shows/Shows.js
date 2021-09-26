@@ -10,21 +10,24 @@ import ReactPaginate from 'react-paginate';
 import { clearShowsData } from '../../Reducer/shows/reducer';
 import { ListItems } from '../ListItems/ListItems';
 import { useHistory } from 'react-router-dom';
+import { Filters } from '../Filters/Filters';
 
 const Shows = () => {
   const { t } = useTranslation();
   const history = useHistory();
   const classes = useStyles();
   const { data, loading } = useSelector(selectShows);
-
+  const limit = 20;
   const [boundFetchShows, boundClearShows] = useAction([
     fetchShows,
     clearShowsData,
   ]);
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
+  const [status, setStatus] = useState(null);
+  const [genres, setGenres] = useState([]);
 
   const loadSelectedPage = (selectPage) => {
-    setPage(selectPage.selected);
+    setPage(selectPage.selected + 1);
   };
 
   const clickHandler = (id) => {
@@ -32,26 +35,30 @@ const Shows = () => {
   };
 
   useEffect(() => {
-    boundFetchShows({ page });
+    boundFetchShows({ page, genres, status });
     window.scrollTo(0, 0);
     return () => {
       boundClearShows();
     };
-  }, [page]);
+  }, [page, status, genres]);
 
   return (
     <div className={classes.root}>
       <Typography variant={'h2'}>{t(langTokens.nav.shows)}</Typography>
-      {loading === 'succeeded' ? (
+      <Filters setGenres={setGenres} setStatus={setStatus} />
+      {loading === 'succeeded' && data ? (
         <>
-          <ListItems items={data} clickHandler={clickHandler} />
+          <ListItems
+            items={data.rows.map((d) => d.data)}
+            autoPaginationDisable
+            clickHandler={clickHandler}
+          />
           <ReactPaginate
             onPageChange={loadSelectedPage}
             containerClassName={classes.pagination}
-            breakLinkClassName={classes.break}
             activeClassName={classes.active}
-            initialPage={page}
-            pageCount={231}
+            initialPage={page - 1}
+            pageCount={data.count / limit}
             pageRangeDisplayed={5}
             marginPagesDisplayed={1}
             previousLabel={'<'}

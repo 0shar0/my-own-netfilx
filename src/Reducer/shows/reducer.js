@@ -11,7 +11,7 @@ const showsSlice = createSlice({
   initialState,
   reducers: {
     clearShowsData: (state) => {
-      state.data.splice(0);
+      delete state.data
     },
   },
   extraReducers: {
