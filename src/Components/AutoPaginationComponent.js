@@ -24,7 +24,7 @@ export const AutoPaginationComponent = ({ componentList, className }) => {
     <>
       {componentList.slice(0, count)}
       <div className={className} ref={lastElement}>
-        {componentList.slice(count, count + 20)}
+        {componentList.slice(count, count + 4)}
       </div>
     </>
   );
