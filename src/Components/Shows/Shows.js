@@ -23,6 +23,8 @@ const Shows = () => {
     clearShowsData,
   ]);
   const [page, setPage] = useState(1);
+  const [status, setStatus] = useState(null);
+  const [genres, setGenres] = useState([]);
 
   const loadSelectedPage = (selectPage) => {
     setPage(selectPage.selected + 1);
@@ -33,17 +35,17 @@ const Shows = () => {
   };
 
   useEffect(() => {
-    boundFetchShows({ page, limit });
+    boundFetchShows({ page, genres, status });
     window.scrollTo(0, 0);
     return () => {
       boundClearShows();
     };
-  }, [page]);
+  }, [page, status, genres]);
 
   return (
     <div className={classes.root}>
       <Typography variant={'h2'}>{t(langTokens.nav.shows)}</Typography>
-      <Filters />
+      <Filters setGenres={setGenres} setStatus={setStatus} />
       {loading === 'succeeded' && data ? (
         <>
           <ListItems

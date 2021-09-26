@@ -3,9 +3,9 @@ import { getShows } from '../../Api/api';
 
 export const fetchShows = createAsyncThunk(
   'fetchShows',
-  async ({ page, limit }, { rejectWithValue }) => {
+  async (params, { rejectWithValue }) => {
     try {
-      const response = await getShows({page,limit});
+      const response = await getShows(params);
       return response.data;
     } catch (err) {
       rejectWithValue(err);

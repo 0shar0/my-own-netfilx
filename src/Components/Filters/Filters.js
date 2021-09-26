@@ -6,7 +6,7 @@ import { langTokens } from '../../Locales/localization';
 import { genres } from '../../Constant/Genres';
 import { useTheme } from '@material-ui/core';
 
-export const Filters = () => {
+export const Filters = ({ setGenres, setStatus }) => {
   const classes = useStyles();
   const { t } = useTranslation();
   const theme = useTheme();
@@ -46,6 +46,7 @@ export const Filters = () => {
   return (
     <div className={classes.root}>
       <Select
+        onChange={(e) => setStatus(e.value)}
         theme={(t) => ({
           ...t,
           colors: {
@@ -59,6 +60,7 @@ export const Filters = () => {
         options={options}
       />
       <Select
+        onChange={(e) => setGenres(JSON.stringify(e.map((el) => el.value)))}
         theme={(t) => ({
           ...t,
           opacity: {
