@@ -3,9 +3,9 @@ import { getPeople } from '../../Api/api';
 
 export const fetchPeople = createAsyncThunk(
   'fetchPeople',
-  async (_, { rejectedWithValue }) => {
+  async (page, { rejectedWithValue }) => {
     try {
-      const response = await getPeople();
+      const response = await getPeople(page);
       return response.data;
     } catch (e) {
       rejectedWithValue(e);

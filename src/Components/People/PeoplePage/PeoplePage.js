@@ -20,10 +20,12 @@ const PeoplePage = () => {
   const history = useHistory();
 
   useEffect(() => {
-    getPeopleById(params.id).then((response) => setPerson(response.data));
-    getShowsForPeopleById(params.id).then((response) =>
-      setShows(response.data),
-    );
+    getPeopleById(params.id).then((response) => {
+      setPerson(response.data);
+    });
+    getShowsForPeopleById(params.id).then((response) => {
+      setShows(response.data);
+    });
   }, []);
 
   const showsArray = (array) => {

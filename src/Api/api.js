@@ -3,31 +3,34 @@ import axios from 'axios';
 const instance = axios.create({
   baseURL: 'https://api.tvmaze.com',
 });
+const apiInstance = axios.create({
+  baseURL: ' https://api.tvmaze.com',
+});
 
 export const getSchedule = async () => {
-  return instance.get('/schedule');
+  return apiInstance.get('/schedule');
 };
 
 export const getShows = async (page) => {
-  return instance.get('/shows', { params: { page } });
+  return baseInstance.get('/shows');
 };
 
-export const getPeople = async ()=>{
-  return instance.get('people')
-}
+export const getPeople = async (page) => {
+  return apiInstance.get('/people', { params: { page } });
+};
 
 export const getShowsById = async (id) => {
-  return instance.get(`/shows/${id}?embed=cast`);
+  return apiInstance.get(`/shows/${id}?embed=cast`, { params: { id } });
 };
 
 export const getPeopleById = async (id) => {
-  return instance.get(`/people/${id}`);
+  return apiInstance.get(`/people/${id}`, { params: { id } });
 };
 
 export const getShowsForPeopleById = async (id) => {
-  return instance.get(`/people/${id}/castcredits?embed=show`);
+  return apiInstance.get(`/people/${id}/castcredits?embed=show`);
 };
 
 export const getShowsEpisodes = async (id) => {
-  return instance.get(`/shows/${id}/episodes`);
+  return apiInstance.get(`/shows/${id}/episodes`);
 };
