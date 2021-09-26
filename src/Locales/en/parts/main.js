@@ -1,6 +1,6 @@
 export const main = {
   name: 'My own Netflix',
-  login: 'Login / Signup',
+  login: 'Sign In / Sign Up',
   submit: 'Login',
   reg: 'Register',
   email: 'E-mail',
@@ -24,5 +24,6 @@ export const main = {
   shows: 'Shows',
   country: 'Country Name: {{name}}',
   gender: 'Gender: {{gender}}',
-  birthday:'Birthday: {{birthday}}'
+  birthday:'Birthday: {{birthday}}',
+  logout:'Sign Out',
 };

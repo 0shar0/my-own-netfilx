@@ -4,8 +4,8 @@ import { Page } from '../Components/Page';
 import { AuthContext } from '../Provider/AuthProvider/AuthProvider';
 
 export const PrivateRouts = ({ path, exact, component }) => {
-  const auth = useContext(AuthContext);
-  if (auth.authenticated) {
+  const {authenticated} = useContext(AuthContext);
+  if (authenticated) {
     return (
       <Route path={path} exact={exact}>
         <Page component={component} />
