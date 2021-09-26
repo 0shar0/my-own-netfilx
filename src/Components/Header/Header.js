@@ -8,7 +8,6 @@ import { Navbar } from '../Navbar/Navbar';
 import { LoginModal } from '../LoginModal/LoginModal';
 import { CustomButton } from '../CustomButton/CustomButton';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
-import { useHistory } from 'react-router-dom';
 
 export const Header = () => {
   const classes = useStyles({
@@ -16,15 +15,14 @@ export const Header = () => {
   });
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
-  const { currentUser, authenticated } = useContext(AuthContext);
+  const { currentUser, authenticated, setCurrentUser } =
+    useContext(AuthContext);
   const handleOpen = () => setOpen(true);
-  const history = useHistory();
 
-  const logout = () => {
-    authenticated.signOut();
-    history.push('/');
+  const logout = async () => {
+    await authenticated.signOut();
+    setCurrentUser(null);
   };
-  console.log(currentUser);
 
   return (
     <>

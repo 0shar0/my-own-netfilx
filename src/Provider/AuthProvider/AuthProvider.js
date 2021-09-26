@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   });
 
   return (
-    <AuthContext.Provider value={{ authenticated, firestore, currentUser }}>
+    <AuthContext.Provider value={{ authenticated, firestore, currentUser, setCurrentUser }}>
       {children}
     </AuthContext.Provider>
   );
