@@ -12,11 +12,14 @@ import {
 import { langTokens } from '../../../../../Locales/localization';
 import { useTranslation } from 'react-i18next';
 import { reverse } from '../../../../../Constant/Functions';
+import { useStyles } from './ShowEpisodesTable.styles';
 
 export const EpisodesTable = ({ episodes }) => {
   const { t } = useTranslation();
+  const classes = useStyles();
+
   return (
-    <TableContainer component={Paper}>
+    <TableContainer className={classes.root} component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
@@ -36,9 +39,9 @@ export const EpisodesTable = ({ episodes }) => {
           {reverse(episodes).map((episode, index, array) => (
             <React.Fragment key={episode.id}>
               {episode?.season !== array[index - 1]?.season && (
-                <TableRow>
+                <TableRow className={classes.season}>
                   <TableCell>
-                    <Typography variant={'h6'}>
+                    <Typography className={classes.season} variant={'h6'}>
                       {t(langTokens.main.season) + episode.season}
                     </Typography>
                   </TableCell>
