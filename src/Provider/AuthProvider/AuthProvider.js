@@ -1,30 +1,23 @@
-import { createContext, useState } from 'react';
-import firebase from 'firebase/compat';
+import { createContext, useEffect, useState } from 'react';
+import { chek } from '../../Api/userApi';
 
 export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const firebaseConfig = {
-    apiKey: 'AIzaSyBfExKRgo-4kmiKRrrUhw-xMl_xsTfFg3w',
-    authDomain: 'my-own-netflix-e8f06.firebaseapp.com',
-    projectId: 'my-own-netflix-e8f06',
-    storageBucket: 'my-own-netflix-e8f06.appspot.com',
-    messagingSenderId: '69093396612',
-    appId: '1:69093396612:web:366f60ee09872f751bb2d1',
-  };
-  const app = firebase.initializeApp(firebaseConfig);
-  const authenticated = app.auth();
-  const firestore = app.firestore();
   const [currentUser, setCurrentUser] = useState(null);
+  const [auth, setAuth] = useState(false);
 
-  authenticated.onAuthStateChanged((user) => {
-    if (user) {
-      setCurrentUser(user?._delegate);
-    }
-  });
+  useEffect(() => {
+    setAuth(!!currentUser);
+  }, [currentUser]);
 
+  useEffect(() => {
+    chek().then((r) => {
+      setCurrentUser(r);
+    });
+  }, []);
   return (
-    <AuthContext.Provider value={{ authenticated, firestore, currentUser, setCurrentUser }}>
+    <AuthContext.Provider value={{ currentUser, auth, setCurrentUser }}>
       {children}
     </AuthContext.Provider>
   );

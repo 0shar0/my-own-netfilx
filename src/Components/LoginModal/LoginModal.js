@@ -5,33 +5,29 @@ import { CustomButton } from '../CustomButton/CustomButton';
 import { langTokens } from '../../Locales/localization';
 import { useTranslation } from 'react-i18next';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
+import { registration, signIn } from '../../Api/userApi';
 
 export const LoginModal = ({ open, setOpen }) => {
   const handleClose = () => setOpen(false);
   const theme = useTheme();
   const classes = useStyles();
   const { t } = useTranslation();
-  const { authenticated, currentUser } = useContext(AuthContext);
+  const { setCurrentUser } = useContext(AuthContext);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
-  const login = (email, password) => {
-    authenticated
-      .signInWithEmailAndPassword(email, password)
-      .then(setOpen(false))
-      .catch((e) => console.error(e));
+  const login = () => {
+    signIn({ email, password }).then((r) => {
+      setOpen(false);
+      setCurrentUser(r);
+    });
   };
 
-  const createUser = (email, password) => {
-    if (email && password) {
-      if (password.length >= 6) {
-        authenticated
-          .createUserWithEmailAndPassword(email, password)
-          .then(setOpen(false))
-          .catch((e) => console.error(e));
-      } else {
-      }
-    }
+  const createUser = () => {
+    registration({ email, password }).then((r) => {
+      setOpen(false);
+      setCurrentUser(r);
+    });
   };
 
   const style = {
@@ -58,6 +54,7 @@ export const LoginModal = ({ open, setOpen }) => {
       <Fade in={open}>
         <Box sx={style}>
           <Input
+            type={'email'}
             placeholder={t(langTokens.main.email)}
             className={classes.input}
             onChange={(e) => setEmail(e.target.value)}
@@ -71,11 +68,11 @@ export const LoginModal = ({ open, setOpen }) => {
           <div className={classes.buttonContainer}>
             <CustomButton
               text={t(langTokens.main.submit)}
-              handleClick={() => login(email, password)}
+              handleClick={login}
             />
             <CustomButton
               text={t(langTokens.main.reg)}
-              handleClick={() => createUser(email, password)}
+              handleClick={createUser}
             />
           </div>
         </Box>
