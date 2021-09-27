@@ -30,5 +30,5 @@ export const main = {
   running: 'Running',
   determined: 'To Be Determined',
   develop: 'In Development',
-  showStatus: 'Show Status',
+  showStatus: 'All Shows',
 };
