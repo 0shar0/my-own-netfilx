@@ -8,7 +8,7 @@ import { Navbar } from '../Navbar/Navbar';
 import { LoginModal } from '../LoginModal/LoginModal';
 import { CustomButton } from '../CustomButton/CustomButton';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export const Header = () => {
   const classes = useStyles({
@@ -16,15 +16,15 @@ export const Header = () => {
   });
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
-  const history = useHistory()
-  const { currentUser, authenticated, setCurrentUser } =
-    useContext(AuthContext);
+  const history = useHistory();
+  const { auth, setCurrentUser } = useContext(AuthContext);
   const handleOpen = () => setOpen(true);
 
   const logout = async () => {
-    await authenticated.signOut();
+    setOpen(false);
     setCurrentUser(null);
-    history.push('/')
+    localStorage.removeItem('token');
+    history.push('/');
   };
 
   return (
@@ -35,7 +35,7 @@ export const Header = () => {
             {t(langTokens.main.name)}
           </Typography>
         </Box>
-        {!currentUser ? (
+        {!auth ? (
           <CustomButton
             handleClick={handleOpen}
             text={t(langTokens.main.login)}

@@ -1,5 +1,5 @@
 export const routs = {
-  main: { path: '/', key: 'main' },
+  main: { path: '/home', key: 'main' },
   show: { path: '/shows', key: 'shows' },
   people: { path: '/people', key: 'people' },
   showId: { path: '/shows/:id', key: '/show' },

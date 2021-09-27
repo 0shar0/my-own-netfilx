@@ -25,6 +25,9 @@ export const AppRouts = ({ routerConfig }) => {
             </Route>
           );
         })}
+          <Route exact path='/'>
+              <Redirect to='/home'/>
+          </Route>
         <Redirect to={routs.error404.path} />
       </Switch>
     </>

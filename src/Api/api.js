@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const baseInstance = axios.create({
   baseURL: 'https://my-own-netflix-back.herokuapp.com/api',
-  /*'http://localhost:5000/api'*/
 });
 const apiInstance = axios.create({
   baseURL: ' https://api.tvmaze.com',
