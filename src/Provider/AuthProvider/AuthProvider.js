@@ -12,9 +12,11 @@ export const AuthProvider = ({ children }) => {
   }, [currentUser]);
 
   useEffect(() => {
-    chek().then((r) => {
-      setCurrentUser(r);
-    });
+    if (localStorage.getItem('token')) {
+      chek().then((r) => {
+        setCurrentUser(r);
+      });
+    }
   }, []);
   return (
     <AuthContext.Provider value={{ currentUser, auth, setCurrentUser }}>

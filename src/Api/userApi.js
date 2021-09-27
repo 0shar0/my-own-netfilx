@@ -7,8 +7,8 @@ const baseInstance = axios.create({
   /*'https://my-own-netflix-back.herokuapp.com/api',*/
 });
 const authBaseInstance = axios.create({
-  baseURL: 'http://localhost:5000/api',
-  /*'https://my-own-netflix-back.herokuapp.com/api',*/
+  /*'http://localhost:5000/api',*/
+  baseURL: 'https://my-own-netflix-back.herokuapp.com/api',
 });
 
 const authInterceptor = (config) => {
@@ -51,17 +51,7 @@ export const signIn = async (params) => {
 };
 
 export const chek = async () => {
-  try {
-    const { data } = await authBaseInstance.get('/user/auth');
-    localStorage.setItem('token', data.token);
-    return jwt_decode(data.token);
-  } catch (e) {
-    await Swal.fire({
-      title: e.response.data.message,
-      position: 'bottom-end',
-      showConfirmButton: false,
-      timer: 2000,
-      background: 'red',
-    });
-  }
+  const { data } = await authBaseInstance.get('/user/auth');
+  localStorage.setItem('token', data.token);
+  return jwt_decode(data.token);
 };
