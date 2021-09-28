@@ -7,11 +7,9 @@ export const ShowEpisodes = ({ episodes, name }) => {
   const classes = useStyles();
 
   return (
-    <>
       <div className={classes.root}>
         <Typography variant={'h2'}>{name}</Typography>
         <EpisodesTable episodes={episodes} />
       </div>
-    </>
   );
 };
