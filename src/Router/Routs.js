@@ -8,6 +8,7 @@ const People = lazy(() => import('../Components/People/People'));
 const Page404 = lazy(() => import('../Components/Page404/Page404'));
 const SearchPage = lazy(() => import('../Components/SearchPage/SearchPage'));
 const AboutPage = lazy(() => import('../Components/AboutPage/AboutPage'));
+const ProfilePage = lazy(() => import('../Components/ProfilePage/ProfilePage'));
 const PeoplePage = lazy(() =>
   import('../Components/People/PeoplePage/PeoplePage'),
 );
@@ -58,5 +59,12 @@ export const routerConfig = [
     key: routs.about.key,
     exact: true,
     component: AboutPage,
+  },
+  {
+    path: routs.profile.path,
+    key: routs.profile.key,
+    exact: true,
+    private: true,
+    component: ProfilePage,
   },
 ];
