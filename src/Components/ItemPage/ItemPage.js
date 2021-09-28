@@ -60,7 +60,11 @@ export const ItemPage = ({ item, episodes, handlerClick, loaded }) => {
                   <CustomButton text={t(langTokens.main.showAllEpisodes)} />
                 </Link>
               </div>
-              <Typography variant={'h3'}>{t(langTokens.main.cast)}</Typography>
+              {!item?._embedded?.cast && (
+                <Typography variant={'h3'}>
+                  {t(langTokens.main.cast)}
+                </Typography>
+              )}
               {!!item?._embedded?.cast && (
                 <ListItems
                   items={personArray(item?._embedded?.cast)}
