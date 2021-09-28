@@ -10,7 +10,6 @@ import { ListItems } from '../ListItems/ListItems';
 import { useHistory } from 'react-router-dom';
 import { fetchPeople, selectPeople } from '../../Reducer/people';
 import { clearPeopleData } from '../../Reducer/people/reducer';
-import { CustomButton } from '../CustomButton/CustomButton';
 
 const People = () => {
   const { t } = useTranslation();

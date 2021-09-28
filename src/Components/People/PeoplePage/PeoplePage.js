@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { getPeopleById, getShowsForPeopleById } from '../../../Api/api';
 import { Typography } from '@material-ui/core';
 import { InfoCard } from '../../InfoCard/InfoCard';
 import { langTokens } from '../../../Locales/localization';
-import ReactHtmlParser from 'react-html-parser';
-import { EpisodesTable } from '../../Shows/ShowPage/ShowEpisodes/ShowEpisodesTable/EpisodesTable';
-import { CustomButton } from '../../CustomButton/CustomButton';
 import { ListItems } from '../../ListItems/ListItems';
 import { useStyles } from './PeoplePage.style';
 import { useTranslation } from 'react-i18next';
