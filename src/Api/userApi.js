@@ -53,3 +53,9 @@ export const chek = async () => {
   localStorage.setItem('token', data.token);
   return jwt_decode(data.token);
 };
+
+export const putLike = async (userData) => {
+  const { data } = await authBaseInstance.put('/user', userData);
+  localStorage.setItem('token', data.token);
+  return jwt_decode(data.token);
+};

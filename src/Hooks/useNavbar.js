@@ -17,6 +17,12 @@ export const useNavbar = () => {
       url: routs.show.path,
     },
     {
+      id: routs.profile.key,
+      label: t(langTokens.nav.profile),
+      url: routs.profile.path,
+      protected: true,
+    },
+    {
       id: routs.people.key,
       label: t(langTokens.nav.people),
       url: routs.people.path,

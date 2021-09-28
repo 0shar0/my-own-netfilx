@@ -6,7 +6,12 @@ const Shows = lazy(() => import('../Components/Shows/Shows'));
 const ShowsPage = lazy(() => import('../Components/Shows/ShowPage/ShowPage'));
 const People = lazy(() => import('../Components/People/People'));
 const Page404 = lazy(() => import('../Components/Page404/Page404'));
-const PeoplePage = lazy(() => import('../Components/People/PeoplePage/PeoplePage'));
+const SearchPage = lazy(() => import('../Components/SearchPage/SearchPage'));
+const AboutPage = lazy(() => import('../Components/AboutPage/AboutPage'));
+const ProfilePage = lazy(() => import('../Components/ProfilePage/ProfilePage'));
+const PeoplePage = lazy(() =>
+  import('../Components/People/PeoplePage/PeoplePage'),
+);
 
 export const routerConfig = [
   {
@@ -42,5 +47,24 @@ export const routerConfig = [
     key: routs.peopleId.key,
     exact: true,
     component: PeoplePage,
+  },
+  {
+    path: routs.search.path,
+    key: routs.search.key,
+    exact: true,
+    component: SearchPage,
+  },
+  {
+    path: routs.about.path,
+    key: routs.about.key,
+    exact: true,
+    component: AboutPage,
+  },
+  {
+    path: routs.profile.path,
+    key: routs.profile.key,
+    exact: true,
+    private: true,
+    component: ProfilePage,
   },
 ];

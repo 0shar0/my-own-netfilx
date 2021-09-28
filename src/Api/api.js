@@ -34,3 +34,11 @@ export const getShowsForPeopleById = async (id) => {
 export const getShowsEpisodes = async (id) => {
   return apiInstance.get(`/shows/${id}/episodes`);
 };
+
+export const getShowsSearch = async (query) => {
+  return apiInstance.get(`https://api.tvmaze.com/search/shows?q=${query}`);
+};
+
+export const getPeopleSearch = async (query) => {
+  return apiInstance.get(`https://api.tvmaze.com/search/people?q=${query}`);
+};

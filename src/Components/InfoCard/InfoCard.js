@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, CardContent, Typography } from '@material-ui/core';
+import { Box, Card, CardContent, Typography } from '@material-ui/core';
 import { langTokens } from '../../Locales/localization';
 import { Rating } from '@material-ui/lab';
 import { useTranslation } from 'react-i18next';
+import { LikeCheckBox } from '../LikeCheckBox/LikeCheckBox';
 
 export const InfoCard = ({ item }) => {
   const { t } = useTranslation();
@@ -15,7 +16,10 @@ export const InfoCard = ({ item }) => {
   return (
     <Card>
       <CardContent>
-        <Typography variant={'h3'}>{t(langTokens.main.showInfo)}</Typography>
+        <Box display={'flex'} justifyContent="space-between">
+          <Typography variant={'h3'}>{t(langTokens.main.showInfo)}</Typography>
+          {item?.id && <LikeCheckBox id={item.id} />}
+        </Box>
         {item?.runtime && (
           <Typography variant={'h5'}>
             {t(langTokens.main.average, { show: item })}
