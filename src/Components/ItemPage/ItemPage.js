@@ -10,11 +10,10 @@ import { ShowEpisodes } from '../Shows/ShowPage/ShowEpisodes/ShowEpisodes';
 import { routs } from '../../Constant/Routing';
 import { useStyles } from './ItemPage.style';
 import { useTranslation } from 'react-i18next';
-import {InfoCard} from '../InfoCard/InfoCard';
+import { InfoCard } from '../InfoCard/InfoCard';
 
 export const ItemPage = ({ item, episodes, handlerClick }) => {
   const classes = useStyles();
-
   const { t } = useTranslation();
   const match = useRouteMatch();
 
@@ -32,7 +31,7 @@ export const ItemPage = ({ item, episodes, handlerClick }) => {
           <Typography variant={'h2'}>{item?.name}</Typography>
           <div className={classes.imgContainer}>
             <img src={item?.image?.medium} alt="logo" />
-            <InfoCard item={item}/>
+            <InfoCard item={item} />
           </div>
           <div className={classes.summary}>
             <Typography variant={'h3'}>{t(langTokens.main.summary)}</Typography>
