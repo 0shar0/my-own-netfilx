@@ -11,6 +11,7 @@ const ShowPage = () => {
   const { id } = useParams();
   const history = useHistory();
   const [show, setShow] = useState();
+  const [loaded, setLoaded] = useState(true);
   const [boundGetEpisodes] = useAction([fetchEpisodes]);
   const episodes = useSelector(selectEpisodes);
 
@@ -19,7 +20,12 @@ const ShowPage = () => {
   };
 
   useEffect(() => {
-    getShowsById(id).then((response) => setShow(response.data));
+    getShowsById(id)
+      .then((response) => {
+        setShow(response.data);
+        return response;
+      })
+      .catch(() => setLoaded(false));
     boundGetEpisodes(id);
   }, []);
 
@@ -27,6 +33,7 @@ const ShowPage = () => {
     <ItemPage
       item={show}
       handlerClick={handlerPersonClick}
+      loaded={loaded}
       episodes={episodes}
     />
   );
