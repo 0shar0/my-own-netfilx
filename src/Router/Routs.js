@@ -7,6 +7,7 @@ const ShowsPage = lazy(() => import('../Components/Shows/ShowPage/ShowPage'));
 const People = lazy(() => import('../Components/People/People'));
 const Page404 = lazy(() => import('../Components/Page404/Page404'));
 const SearchPage = lazy(() => import('../Components/SearchPage/SearchPage'));
+const AboutPage = lazy(() => import('../Components/AboutPage/AboutPage'));
 const PeoplePage = lazy(() =>
   import('../Components/People/PeoplePage/PeoplePage'),
 );
@@ -51,5 +52,11 @@ export const routerConfig = [
     key: routs.search.key,
     exact: true,
     component: SearchPage,
+  },
+  {
+    path: routs.about.path,
+    key: routs.about.key,
+    exact: true,
+    component: AboutPage,
   },
 ];

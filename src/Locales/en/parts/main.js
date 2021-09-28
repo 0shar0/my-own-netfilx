@@ -32,4 +32,5 @@ export const main = {
   develop: 'In Development',
   showStatus: 'All Shows',
   searchPlaceholder: 'Shows and People',
+  noResult: 'Nothing found for your request',
 };

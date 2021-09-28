@@ -15,6 +15,7 @@ export const SearchField = () => {
 
   const searchHandler = () => {
     if (value) {
+      setValue('');
       setSearchInput(null);
       history.push(`/search/${value}`);
     }
@@ -44,6 +45,7 @@ export const SearchField = () => {
         <MenuItem className={classes.searchInputWrapper}>
           <Input
             disableUnderline
+            value={value}
             onChange={(event) => setValue(event.target.value)}
             className={classes.searchInput}
             placeholder={t(langTokens.main.searchPlaceholder)}

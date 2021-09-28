@@ -4,13 +4,18 @@ export const useStyles = makeStyles((theme) => ({
   root: {
     color: theme.palette.common.white,
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    minHeight: '50vh',
+    flexDirection: 'column',
     marginTop: theme.spacing(5),
   },
-  noResult: {
-    color: theme.palette.common.white,
-    height: '80vh',
+  textWrapper: {
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: theme.spacing(5),
+    width: '100%',
+  },
+  textHeader: {
+    minWidth: 250,
   },
 }));

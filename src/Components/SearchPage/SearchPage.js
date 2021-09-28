@@ -23,28 +23,44 @@ const SearchPage = () => {
   }, [query]);
 
   return (
-    <div className={classes.root}>
-      {!!shows.length && (
-        <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
-          <Typography variant={'h2'}>{t(langTokens.nav.shows)}</Typography>
-          <ListItems
-            autoPaginationDisable
-            clickHandler={(id) => history.push(`/shows/${id}`)}
-            items={shows}
-          />
-        </Box>
+    <>
+      {!!shows.length && !!people.length ? (
+        <div className={classes.root}>
+          {!!shows.length && (
+            <Box
+              display={'flex'}
+              flexDirection={'column'}
+              alignItems={'center'}
+            >
+              <Typography variant={'h2'}>{t(langTokens.nav.shows)}</Typography>
+              <ListItems
+                autoPaginationDisable
+                clickHandler={(id) => history.push(`/shows/${id}`)}
+                items={shows}
+              />
+            </Box>
+          )}
+          {!!people.length && (
+            <Box
+              display={'flex'}
+              flexDirection={'column'}
+              alignItems={'center'}
+            >
+              <Typography variant={'h2'}>{t(langTokens.nav.people)}</Typography>
+              <ListItems
+                autoPaginationDisable
+                clickHandler={(id) => history.push(`/people/${id}`)}
+                items={people}
+              />
+            </Box>
+          )}
+        </div>
+      ) : (
+        <div className={classes.noResult}>
+          <Typography variant={'h1'}>{t(langTokens.main.noResult)}</Typography>
+        </div>
       )}
-      {!!people.length && (
-        <Box display={'flex'} flexDirection={'column'} alignItems={'center'}>
-          <Typography variant={'h2'}>{t(langTokens.nav.people)}</Typography>
-          <ListItems
-            autoPaginationDisable
-            clickHandler={(id) => history.push(`/people/${id}`)}
-            items={people}
-          />
-        </Box>
-      )}
-    </div>
+    </>
   );
 };
 
