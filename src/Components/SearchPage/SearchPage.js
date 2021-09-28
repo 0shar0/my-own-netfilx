@@ -20,7 +20,7 @@ const SearchPage = () => {
       setPeople(r.data.map((el) => el.person)),
     );
     getShowsSearch(query).then((r) => setShows(r.data.map((el) => el.show)));
-  }, []);
+  }, [query]);
 
   return (
     <div className={classes.root}>
