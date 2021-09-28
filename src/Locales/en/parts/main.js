@@ -31,4 +31,5 @@ export const main = {
   determined: 'To Be Determined',
   develop: 'In Development',
   showStatus: 'All Shows',
+  searchPlaceholder: 'Shows and People',
 };
