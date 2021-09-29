@@ -8,5 +8,6 @@ export const routs = {
   search: { path: '/search/:query', key: 'search' },
   about: { path: '/about', key: 'about' },
   profile: { path: '/profile', key: 'profile' },
-  friends: { path: '/friends', key: 'friends' },
+  users: { path: '/users', key: 'users' },
+  request: { path: '/request', key: 'request' },
 };

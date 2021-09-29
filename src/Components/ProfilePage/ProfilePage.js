@@ -20,8 +20,11 @@ const ProfilePage = () => {
   const { likedShows } = currentUser;
   const [shows, setShows] = useState([]);
 
-  const handleClick = () => {
-    history.push(routs.friends.path);
+  const allUsers = () => {
+    history.push(routs.users.path);
+  };
+  const userFriends = () => {
+    history.push(routs.request.path);
   };
 
   useEffect(() => {
@@ -32,11 +35,18 @@ const ProfilePage = () => {
 
   return (
     <div className={classes.root}>
-      <CustomButton
-        className={classes.friendsButton}
-        text={t(langTokens.main.findFriends)}
-        handleClick={handleClick}
-      />
+      <div className={classes.friendsButton}>
+        <CustomButton
+          style={{ marginBottom: 0 }}
+          text={t(langTokens.main.findFriends)}
+          handleClick={allUsers}
+        />
+        <CustomButton
+          style={{ margin: '1px' }}
+          text={t(langTokens.main.userFriends)}
+          handleClick={userFriends}
+        />
+      </div>
       <Typography className={classes.title} variant={'h2'}>
         {currentUser.email}
       </Typography>

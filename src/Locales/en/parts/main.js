@@ -36,4 +36,6 @@ export const main = {
   likedPosts: 'Liked Posts',
   friends: 'Friends',
   findFriends: 'Find Friends',
+  userFriends: 'Requests',
+  users: 'Users',
 };

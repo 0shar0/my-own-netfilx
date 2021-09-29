@@ -11,20 +11,20 @@ export const ItemCard = ({ item, clickHandler }) => {
       <Container disableGutters>
         <img
           src={item?.image?.medium || NO_IMAGE}
-          alt={item.name}
+          alt={item.name || item.email}
           width={210}
           height={295}
         />
         <div className={classes.textWrapper}>
-          <Typography variant={'h4'}>{item.name}</Typography>
+          <Typography variant={'h4'}>{item.name || item.email}</Typography>
           {item?.rating?.average && (
-              <Rating
-                defaultValue={item?.rating?.average}
-                max={10}
-                readOnly
-                precision={0.1}
-                size={'small'}
-              />
+            <Rating
+              defaultValue={item?.rating?.average}
+              max={10}
+              readOnly
+              precision={0.1}
+              size={'small'}
+            />
           )}
         </div>
       </Container>

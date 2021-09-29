@@ -20,7 +20,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   friendsButton: {
     position: 'absolute',
-    top: theme.spacing(20),
-    right: theme.spacing(3),
+    top: theme.spacing(28),
+    left: theme.spacing(3),
+    display: 'flex',
+    flexDirection: 'column',
   },
 }));

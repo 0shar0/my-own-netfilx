@@ -9,6 +9,7 @@ const Page404 = lazy(() => import('../Components/Page404/Page404'));
 const SearchPage = lazy(() => import('../Components/SearchPage/SearchPage'));
 const AboutPage = lazy(() => import('../Components/AboutPage/AboutPage'));
 const ProfilePage = lazy(() => import('../Components/ProfilePage/ProfilePage'));
+const FriendsPage = lazy(() => import('../Components/RequestPage/RequestPage'));
 const SearchFriends = lazy(() =>
   import('../Components/SearchFriends/SearchFriends'),
 );
@@ -71,8 +72,15 @@ export const routerConfig = [
     component: ProfilePage,
   },
   {
-    path: routs.friends.path,
-    key: routs.friends.key,
+    path: routs.request.path,
+    key: routs.request.key,
+    exact: true,
+    private: true,
+    component: FriendsPage,
+  },
+  {
+    path: routs.users.path,
+    key: routs.users.key,
     exact: true,
     private: true,
     component: SearchFriends,
