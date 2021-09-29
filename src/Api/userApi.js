@@ -3,10 +3,10 @@ import jwt_decode from 'jwt-decode';
 import Swal from 'sweetalert2';
 
 const baseInstance = axios.create({
-  baseURL: 'http://localhost:5001/api' /*'https://my-own-netflix-back.herokuapp.com/api',*/
+  baseURL: /*'http://localhost:5001/api'*/ 'https://my-own-netflix-back.herokuapp.com/api',
 });
 const authBaseInstance = axios.create({
-  baseURL: 'http://localhost:5001/api' /*'https://my-own-netflix-back.herokuapp.com/api',*/
+  baseURL: /*'http://localhost:5001/api'*/ 'https://my-own-netflix-back.herokuapp.com/api',
 });
 
 const authInterceptor = (config) => {
