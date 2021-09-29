@@ -6,10 +6,13 @@ import { langTokens } from '../../Locales/localization';
 import { useTranslation } from 'react-i18next';
 import { AuthContext } from '../../Provider/AuthProvider/AuthProvider';
 import { registration, signIn } from '../../Api/userApi';
+import { useHistory } from 'react-router-dom';
+import { routs } from '../../Constant/Routing';
 
 export const LoginModal = ({ open, setOpen }) => {
   const handleClose = () => setOpen(false);
   const theme = useTheme();
+  const history = useHistory();
   const classes = useStyles();
   const { t } = useTranslation();
   const { setCurrentUser } = useContext(AuthContext);
@@ -20,6 +23,7 @@ export const LoginModal = ({ open, setOpen }) => {
     signIn({ email, password }).then((r) => {
       setOpen(false);
       setCurrentUser(r);
+      history.push(routs.profile.path);
     });
   };
 

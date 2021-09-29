@@ -14,7 +14,7 @@ export const InfoCard = ({ item }) => {
   };
 
   return (
-    <Card>
+    <Card style={{ minWidth: 250 }}>
       <CardContent>
         <Box display={'flex'} justifyContent="space-between">
           <Typography variant={'h3'}>{t(langTokens.main.showInfo)}</Typography>

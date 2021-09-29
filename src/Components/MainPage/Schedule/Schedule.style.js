@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   dataGrid: {
-    marginTop: theme.spacing(5),
+    margin: theme.spacing(5),
     width: '600px',
     color: `${theme.palette.primary.white} !important`,
   },

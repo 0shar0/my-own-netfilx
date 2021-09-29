@@ -1,11 +1,15 @@
 import React from 'react';
-import {useStyles} from './CustomButton.styles';
-import {Button} from '@material-ui/core';
+import { useStyles } from './CustomButton.styles';
+import { Button } from '@material-ui/core';
 
-export const CustomButton = ({ handleClick, text }) => {
+export const CustomButton = ({ handleClick, text, className }) => {
   const classes = useStyles();
   return (
-    <Button onClick={handleClick} classes={{ root: classes.rootButton }}>
+    <Button
+      className={className}
+      onClick={handleClick}
+      classes={{ root: classes.rootButton }}
+    >
       {text}
     </Button>
   );

@@ -33,4 +33,7 @@ export const main = {
   showStatus: 'All Shows',
   searchPlaceholder: 'Shows and People',
   noResult: 'Nothing found for your request',
+  likedPosts: 'Liked Posts',
+  friends: 'Friends',
+  findFriends: 'Find Friends',
 };
