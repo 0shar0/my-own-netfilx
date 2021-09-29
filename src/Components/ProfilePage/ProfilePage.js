@@ -11,6 +11,9 @@ import { ListItems } from '../ListItems/ListItems';
 import { useHistory } from 'react-router-dom';
 import { CustomButton } from '../CustomButton/CustomButton';
 import { routs } from '../../Constant/Routing';
+import { useAction } from '../../Hooks/useAction';
+import { fetchRequests, selectRequests } from '../../Reducer/requests';
+import { useSelector } from 'react-redux';
 
 const ProfilePage = () => {
   const classes = useStyles();
@@ -19,6 +22,8 @@ const ProfilePage = () => {
   const { currentUser } = useContext(AuthContext);
   const { likedShows } = currentUser;
   const [shows, setShows] = useState([]);
+  const [boundFetchRequests] = useAction([fetchRequests]);
+  const requests = useSelector(selectRequests);
 
   const allUsers = () => {
     history.push(routs.users.path);
@@ -31,7 +36,10 @@ const ProfilePage = () => {
     Promise.all(likedShows.map((id) => getShowsById(id))).then((res) =>
       setShows(res.map((r) => r.data)),
     );
+    boundFetchRequests(currentUser.id);
   }, [likedShows]);
+
+  console.log(requests);
 
   return (
     <div className={classes.root}>
@@ -41,11 +49,13 @@ const ProfilePage = () => {
           text={t(langTokens.main.findFriends)}
           handleClick={allUsers}
         />
-        <CustomButton
-          style={{ margin: '1px' }}
-          text={t(langTokens.main.userFriends)}
-          handleClick={userFriends}
-        />
+        {!!requests.length && (
+          <CustomButton
+            style={{ margin: '1px' }}
+            text={t(langTokens.main.userFriends)}
+            handleClick={userFriends}
+          />
+        )}
       </div>
       <Typography className={classes.title} variant={'h2'}>
         {currentUser.email}

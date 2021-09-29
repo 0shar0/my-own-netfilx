@@ -87,3 +87,7 @@ export const friendsRequest = async (id) => {
       });
     });
 };
+export const getRequest = async (id) => {
+  const response = await authBaseInstance.get('/request', { params: { id } });
+  return response.data;
+};
