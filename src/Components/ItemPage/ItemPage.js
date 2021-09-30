@@ -13,7 +13,7 @@ import { useTranslation } from 'react-i18next';
 import { InfoCard } from '../InfoCard/InfoCard';
 import Page404 from '../Page404/Page404';
 
-export const ItemPage = ({ item, episodes, handlerClick, loaded }) => {
+export const ItemPage = ({ show, item, episodes, handlerClick, loaded }) => {
   const classes = useStyles();
   const { t } = useTranslation();
   const match = useRouteMatch();
@@ -34,7 +34,7 @@ export const ItemPage = ({ item, episodes, handlerClick, loaded }) => {
               <Typography variant={'h2'}>{item?.name}</Typography>
               <div className={classes.imgContainer}>
                 <img src={item?.image?.medium} alt="logo" />
-                <InfoCard item={item} />
+                <InfoCard show={show} item={item} />
               </div>
               <div className={classes.summary}>
                 <Typography variant={'h3'}>

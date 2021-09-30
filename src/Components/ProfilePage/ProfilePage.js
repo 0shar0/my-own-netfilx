@@ -14,16 +14,18 @@ import { routs } from '../../Constant/Routing';
 import { useAction } from '../../Hooks/useAction';
 import { fetchRequests, selectRequests } from '../../Reducer/requests';
 import { useSelector } from 'react-redux';
+import { deleteFriends, getFriends } from '../../Api/userApi';
 
 const ProfilePage = () => {
   const classes = useStyles();
   const history = useHistory();
   const { t } = useTranslation();
-  const { currentUser } = useContext(AuthContext);
+  const { currentUser, setCurrentUser } = useContext(AuthContext);
   const { likedShows } = currentUser;
   const [shows, setShows] = useState([]);
+  const [friends, setFriends] = useState([]);
   const [boundFetchRequests] = useAction([fetchRequests]);
-  const requests = useSelector(selectRequests);
+  const { requests } = useSelector(selectRequests);
 
   const allUsers = () => {
     history.push(routs.users.path);
@@ -36,10 +38,11 @@ const ProfilePage = () => {
     Promise.all(likedShows.map((id) => getShowsById(id))).then((res) =>
       setShows(res.map((r) => r.data)),
     );
+    if (currentUser.friends.length) {
+      getFriends(currentUser.friends).then((r) => setFriends(r));
+    }
     boundFetchRequests(currentUser.id);
   }, [likedShows]);
-
-  console.log(requests);
 
   return (
     <div className={classes.root}>
@@ -49,7 +52,7 @@ const ProfilePage = () => {
           text={t(langTokens.main.findFriends)}
           handleClick={allUsers}
         />
-        {!!requests.length && (
+        {!!requests?.length && (
           <CustomButton
             style={{ margin: '1px' }}
             text={t(langTokens.main.userFriends)}
@@ -71,7 +74,7 @@ const ProfilePage = () => {
         </label>
         <InfoCard />
       </Box>
-      {!!currentUser.friends?.length && (
+      {!!currentUser.friends.length && (
         <Box
           width="100%"
           display="flex"
@@ -83,8 +86,10 @@ const ProfilePage = () => {
           </Typography>
           <ListItems
             autoPaginationDisable
-            items={shows}
-            clickHandler={(id) => {}}
+            items={friends}
+            clickHandler={(id) => {
+              deleteFriends(id).then((r) => setCurrentUser(r));
+            }}
           />
         </Box>
       )}

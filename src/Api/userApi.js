@@ -16,8 +16,16 @@ const authInterceptor = (config) => {
 
 authBaseInstance.interceptors.request.use(authInterceptor);
 
-const swalConfig = (e) => ({
-  title: e.response.data.message,
+const swalAlertConfig = (r) => ({
+  title: r,
+  position: 'center',
+  showConfirmButton: false,
+  timer: 2000,
+  background: 'red',
+});
+
+const swalErrorConfig = (e) => ({
+  title: e,
   position: 'bottom-end',
   showConfirmButton: false,
   timer: 2000,
@@ -30,7 +38,7 @@ export const registration = async (params) => {
     localStorage.setItem('token', data.token);
     return jwt_decode(data.token);
   } catch (e) {
-    await Swal.fire(swalConfig(e));
+    await Swal.fire(swalErrorConfig(e.response.data.message));
   }
 };
 
@@ -40,16 +48,18 @@ export const signIn = async (params) => {
     localStorage.setItem('token', data.token);
     return jwt_decode(data.token);
   } catch (e) {
-    await Swal.fire(swalConfig(e));
+    await Swal.fire(swalErrorConfig(e.response.data.message));
   }
 };
 
-export const getAllUsers = async () => {
+export const getAllUsers = async (page, id) => {
   try {
-    const response = await baseInstance.get('/user/all');
+    const response = await baseInstance.get('/user/all', {
+      params: { page, id },
+    });
     return response.data;
   } catch (e) {
-    await Swal.fire(swalConfig(e));
+    await Swal.fire(swalErrorConfig(e.response.data.message));
   }
 };
 
@@ -66,28 +76,43 @@ export const putLike = async (userData) => {
 };
 
 export const friendsRequest = async (id) => {
-  authBaseInstance
-    .post('/request', { to: id })
-    .then((r) => {
-      Swal.fire({
-        title: r.data.message,
-        position: 'center',
-        showConfirmButton: false,
-        timer: 2000,
-        background: 'red',
-      });
-    })
-    .catch((e) => {
-      Swal.fire({
-        title: e.response.data.message,
-        position: 'center',
-        showConfirmButton: false,
-        timer: 2000,
-        background: 'red',
-      });
+  try {
+    await authBaseInstance.post('/request', { to: id }).then((r) => {
+      Swal.fire(swalAlertConfig(r.data.message));
     });
+  } catch (e) {
+    await Swal.fire(swalErrorConfig(e.response.data.message));
+  }
 };
+
+export const acceptFriendsRequest = async (id) => {
+  const { data } = await authBaseInstance.post('/request/accept', { id });
+  await Swal.fire(swalAlertConfig(data.message));
+  localStorage.setItem('token', data.token);
+  return jwt_decode(data.token);
+};
+
 export const getRequest = async (id) => {
   const response = await authBaseInstance.get('/request', { params: { id } });
   return response.data;
+};
+
+export const getFriends = async (friends) => {
+  const response = await authBaseInstance.get('/request/friends', {
+    params: { friends },
+  });
+  return response.data;
+};
+
+export const deleteFriends = async (id) => {
+  const { data } = await authBaseInstance.delete('/request/friends', {
+    params: { id },
+  });
+  await Swal.fire(swalAlertConfig(data.message));
+  localStorage.setItem('token', data.token);
+  return jwt_decode(data.token);
+};
+
+export const loadShows = async () => {
+  authBaseInstance.post('/shows');
 };

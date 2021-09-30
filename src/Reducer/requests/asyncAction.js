@@ -6,7 +6,7 @@ export const fetchRequests = createAsyncThunk(
   async (id, { rejectedWithValue }) => {
     try {
       const response = await getRequest(id);
-      return response;
+      return { requests: response, requested: true };
     } catch (e) {
       rejectedWithValue(e);
     }

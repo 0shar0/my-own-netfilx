@@ -5,7 +5,7 @@ import { Rating } from '@material-ui/lab';
 import { useTranslation } from 'react-i18next';
 import { LikeCheckBox } from '../LikeCheckBox/LikeCheckBox';
 
-export const InfoCard = ({ item }) => {
+export const InfoCard = ({ show,item }) => {
   const { t } = useTranslation();
   const genre = (itemGenres) => itemGenres.join(' | ');
 
@@ -18,7 +18,7 @@ export const InfoCard = ({ item }) => {
       <CardContent>
         <Box display={'flex'} justifyContent="space-between">
           <Typography variant={'h3'}>{t(langTokens.main.showInfo)}</Typography>
-          {item?.id && <LikeCheckBox id={item.id} />}
+          {item?.id && show &&<LikeCheckBox id={item.id} />}
         </Box>
         {item?.runtime && (
           <Typography variant={'h5'}>

@@ -31,6 +31,7 @@ export const LoginModal = ({ open, setOpen }) => {
     registration({ email, password }).then((r) => {
       setOpen(false);
       setCurrentUser(r);
+      history.push(routs.profile.path);
     });
   };
 

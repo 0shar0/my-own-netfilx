@@ -31,6 +31,7 @@ const ShowPage = () => {
 
   return (
     <ItemPage
+      show={true}
       item={show}
       handlerClick={handlerPersonClick}
       loaded={loaded}

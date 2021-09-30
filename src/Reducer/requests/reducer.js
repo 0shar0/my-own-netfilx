@@ -3,7 +3,10 @@ import { getAsyncActionsReducer } from '../../Helpers/asyncAction';
 import { fetchRequests } from './asyncAction';
 
 const initialState = {
-  data: [],
+  data: {
+    requests: [],
+    requested: false,
+  },
 };
 
 const requestsSlice = createSlice({
@@ -11,7 +14,7 @@ const requestsSlice = createSlice({
   initialState,
   reducers: {
     clearRequests: (state) => {
-      state.data.slice(0);
+      delete state.data;
     },
   },
   extraReducers: {

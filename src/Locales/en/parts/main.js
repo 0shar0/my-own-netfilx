@@ -38,4 +38,6 @@ export const main = {
   findFriends: 'Find Friends',
   userFriends: 'Requests',
   users: 'Users',
+  loadMore: 'Load More',
+  noUsers: 'You added all users',
 };
