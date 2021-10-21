@@ -3,13 +3,9 @@ import { useStyles } from './CustomButton.styles';
 import { Button } from '@material-ui/core';
 
 export const CustomButton = ({ handleClick, text, style }) => {
-  const classes = useStyles();
+  const classes = useStyles(style)();
   return (
-    <Button
-      style={style}
-      onClick={handleClick}
-      classes={{ root: classes.rootButton }}
-    >
+    <Button onClick={handleClick} classes={{ root: classes.rootButton }}>
       {text}
     </Button>
   );
